@@ -1,0 +1,258 @@
+.main{
+    background-color: #F5F6F8;;
+}
+.p-container{
+    height: 1161px;
+    padding-top: 56px;
+
+}
+
+.p-flex{
+    display: flex;
+    justify-content: space-around;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .p-flex{
+        display: grid;
+        grid-template-rows: auto auto;
+    }
+}
+
+
+.p-left p .p-title{
+    margin-left: 50px;
+}
+
+.p-left-content{
+    width: 721px;
+    height: 413px;
+    background: #FFFFFF;
+    border-radius: 6px  ;
+}
+
+.p-date{
+    padding-top: 30px;
+    margin-left: 45px;
+}
+.p-detil{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-bottom: 15px;
+    padding-right: 30px;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.p-detil .exp1{
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.25px;
+    color: #6B6B6B;
+}
+.p-detil .exp2{
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+}
+
+.p-detil .total{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+}
+
+
+
+
+.p-display{
+    display: grid;
+    width: 748px;
+    height: 368px;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.p-pay-option{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.p-pay-option .opt{
+    height: 25px;
+}
+
+.p-opt-wrapper{
+    margin: 40px 10px;
+}
+
+.p-pay-option .opt{
+    margin: 15px;
+    width: 146px;
+    border-radius: 4px;
+    height: 56px;
+    border: 2px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.p-pay-option  img{
+    height: 30px;
+    margin: 15px;
+    padding: 0;
+}
+
+
+.p-line hr{
+    width: 40%;
+    color: #A0A3BD !important;
+    margin: auto 3px;
+}
+
+.p-line p {
+    display: flex;
+    margin: auto 3px;
+}
+
+.p-cash{
+    font-size: 16px;
+    line-height: 28px;
+    margin-top: 10px;
+    /* identical to box height, or 175% */
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+
+    color: #6E7191;
+}
+
+.p-cash a{
+   color:#5F2EEA !important;
+}
+.p-btn{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 40px;
+    color:  #5F2EEA;
+}
+.p-btn a{
+    border: 2px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 300px;
+    padding: 10px 50px;
+    border-radius: 4px;
+}
+
+.p-btn-btn{
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
+.p-btn button{
+    background: transparent;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #5F2EEA;
+    width: 280px;
+    padding: 5px;
+}
+
+.p-btn .p-change {
+    color: #5F2EEA !important;
+}
+
+.p-btn .p-checkout{
+    background:#5F2EEA ;
+    color:  #F7F7FC !important;
+}
+
+                        /* BATAS LEFT */
+
+ .p-right{
+    width: 467px;
+}
+.p-box .p-content .notice{
+    margin-top: 30px;
+    margin-left: 30px;
+    text-align: center;
+    padding: 22px 65px 22px 65px;
+    border-radius: 8px;
+    background: rgba(244, 183, 64, 0.3);
+
+}
+
+.p-title p{
+    border: 1px solid red;
+}
+
+/* BATAS RIGHT */
+
+
+.p-left-content .p-title{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    margin-top: 48px;
+}
+
+/* BATAS PAYMENT METHOD */
+
+.p-box{
+    width: 450px;
+    height: 548px;
+    border: 1px solid #FFFFFF;
+    background: #FFFFFF;
+    font-family: 'Mulish';
+    font-size: 16px;
+    line-height: 20px;
+    color: #4E4B66;
+    letter-spacing: 0.75px;
+    border-radius: 4px;
+}
+
+.p-box .p-content .p-form{
+    padding: 0 40px 0 40px;
+    margin-top: 47px;
+}
+.p-box .p-content .p-form p{
+    margin-bottom: 14px;
+}
+
+.p-box .p-content .p-form input{
+    width: 389px;
+    height: 64px;
+    padding-left: 32px;
+}
+
+
+

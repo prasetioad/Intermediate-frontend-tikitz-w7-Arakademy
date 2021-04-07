@@ -1,0 +1,400 @@
+
+.admin-container{
+    background-color: #F5F6F8;
+    /* border: 1px blue solid; */
+}
+.admin-container-head{
+    display: flex;
+    justify-content: space-evenly;
+    font-family: "Mulish", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #4E4B66;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-top: 56px;
+}
+
+.admin-container-head-left{
+    background: white;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+}
+
+.achl-title{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+}
+
+.admin-container-head-left{
+    border: solid 1px white;
+    width: 761px;
+    height: 750px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.ach-left{
+    display: flex;
+    margin: 53px 40px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-head-left{
+    width: 249px;
+    height: 344px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-head-right{
+    margin-left: 32px;
+    border: 1px white solid;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-identity input{
+    width: 400px;
+    height: 64px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-identity .ach-category{
+    margin-top: 25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-date-body{
+    display: flex;
+    margin-top: 25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-date input{
+    width: 194px;
+    height: 64px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-date-time p{
+    margin-left: 12px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-date-time input{
+    width: 88px;
+    height: 64px;
+    margin-left: 12px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-director{
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-director input{
+    width: 249px;
+    height: 64px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-director .ach-cast input{
+    width: 400px;
+    height: 64px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-synopsis input{
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 681px;
+    height: 108px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-synopsis{
+    margin-left: 40px;
+    margin-top: 25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ach-admin-container-head-left .ach-synopsis {
+    margin-left: 40px;
+    margin-top: 25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+/* BOX */
+.ach-admin-container-head-left .ach-synopsis input{
+    width: 681px;
+    height: 108px;
+    text-align: center;
+}
+.achr-title{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+}
+
+.ach-admin-container-head-rigth{
+    background: white;
+    border-radius: 6px;
+    width: 441px;
+    height: 397px   ;
+}
+
+.ach-admin-container-head-rigth .ach-location select{
+    margin-top: 40px;
+    width: 260px;
+    height: 48px;
+    background: #EFF0F6;
+    margin-left: 32px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+}
+.ach-location .ach-location-select {
+    margin-left: -135px;
+    transform: scale(20,4);
+    opacity: 0;
+    display: none;
+}
+/* INI BAGIAN DROP DOWN LOKASI */
+
+
+
+.button:hover {
+    background-color: red;
+}
+
+.ach-content-right{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 12px;
+    padding-bottom: 21px;
+}
+
+.ach-content-right-item {
+    margin: 10px;
+}
+
+.ach-ebu img{
+    height: 31px ;
+}
+
+.ach-hiflix img{
+    height: 27px ;
+}
+
+.ach-cine img{
+    height: 15px ;
+}
+
+.ach-set-date-time {
+    background: white;
+    width: 441px;
+    height: 251px;
+}
+.ach-set-date-time .ach-date{
+    margin-left: 20px;
+}
+.ach-admin-container-bottom-right{
+    /* border: 1px blue solid; */
+    margin-top: 50px;
+}
+.ach-admin-container-bottom-right .ach-p{
+    /* border: 1px blue solid; */
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+
+    color: #000000;
+}
+
+.ach-admin-container-bottom-right .ach-date input{
+    width: 284px;
+    height: 56px;
+    background: #EFF0F6;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 1px solid #EFF0F6;
+}
+.ach-set{
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: auto auto auto auto ;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    /* border: 1px blue solid; */
+}
+
+
+
+.ach-time{
+    /* border: 1px solid blue; */
+    width: 50px;
+    margin-top: 10px;
+}
+
+.ach-time input{
+    width: 50px;
+    background: transparent;
+    border: 1px blue solid;
+    background: transparent;
+}
+
+
+.ach-set p{
+    margin: 10px;
+}
+
+.ach-admin-container-bottom-right{
+
+}
+
+.ach-saleschart{
+    margin-top: 64px;
+    margin-left: 70px;
+}
+
+.ach-saleschart .ach-sales{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #000000;
+}
+
+.ach-tab{
+    width: 1226px;
+    height: 82px;
+    left: 70px;
+    top: 1082px;
+    /* White */
+    background: #FFFFFF;
+    border-radius: 6px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color: #14142B;
+}
+
+.ach-tab button{
+    margin-left: 40px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background: transparent;
+    border: none;
+
+}
+
+.ach-tablink-item{
+    padding-top:56px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.ach-based-movie-card{
+    width: 365px;
+    height: 351px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin-top: 48px;
+}
+
+.ach-based-movie-title{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    margin-left: 40px;
+    padding-top: 32px;
+    color: #151522;
+    transform: matrix(1, 0, -0.01, 1, 0, 0);
+    }
+
+.ach-tablinks-contet{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    color: #5F2EEA;
+    padding-top: 10px;
+    transform: matrix(1, 0, -0.01, 1, 0, 0);
+}
+
+.ach-tablinks-contet button{
+    background: transparent;
+    border: none;
+}
+
+.ach-based-movie-card .ach-graphic{
+    text-align: center;
+}
+
+.ach-line{
+    display: flex;
+    justify-content: space-around;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+    margin-top: 96px;
+    padding-bottom: 96px;
+}
+
+.ach-line hr{
+    border: 1px solid #DEDEDE;
+    transform: rotate(180deg);
+}

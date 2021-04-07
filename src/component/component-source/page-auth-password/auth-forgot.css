@@ -1,0 +1,44 @@
+.forgot-face{
+    width: 300px;
+    height: 300px;
+    border: solid 1px #dedede;
+    border-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #5F2EEA;
+    color: #fff;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 30px;
+
+}
+
+.forgot-face form{
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 6px;
+}
+
+.forgot-face form input{
+    padding-left: 10px;
+    width: 250px;
+    height: 50px;
+    color: black;
+}
+
+.forgot-face form button{
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 50px;
+    color: black;
+}
+
+.forgot-face form p{
+    margin: 0;
+    margin-top: 10px;
+}

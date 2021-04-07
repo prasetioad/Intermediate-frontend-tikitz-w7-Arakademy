@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mulish:wght@400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.n-nav-container {
+    font-family: 'Mulish', sans-serif;
+    width: 100%;
+    height: 104px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #414141;
+    background-color: #FFFFFF;
+    /* position: fixed;
+    z-index: 1; */
+}
+
+
+.n-wrapper{
+    margin-top: 36.57px ;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.n-logo{
+    display: flex;
+}
+
+.n-nav1 ul{
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.n-nav1 ul li{
+    display: inline-block;
+    padding-left: 56px;
+}
+
+.n-nav1 ul li a {
+    color:#414141;
+}
+
+.n-off {
+    margin-bottom: 30px; 
+    font-size: 25px;
+}
+
+.n-nav{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.n-nav>li>a {
+    padding-top: 7px !important;
+    padding-bottom: 5px !important;
+    color:#414141;
+}
+
+.n-nav i{
+    padding-top: 10px;
+    padding-left: 46.81px;
+    padding-right: 51.29px;
+}
+
+.n-btn a{
+    padding: 15px 60px;
+    background-color: #5F2EEA;
+    margin-right: 0;
+    border-radius: 4px;
+    font-family: 'Mulish' ,sans-serif;
+    font-weight: 700;
+    color:  #F7F7FC !important;
+}
+.n-profil-icon{
+    height: 50px;
+    width: 50px;
+    margin-top: -10px;
+    border-radius: 50%;
+    cursor: pointer;
+    /* border: 1px solid #DEDEDE; */
+}
+
+.n-profil-icon img {
+    width: 60px;
+    border-radius: 50px;
+    border: 1px solid #DEDEDE;
+}
+
+.nav-item .dropdown .n-nav2{
+    display: flex;
+}
+
+.n-nav1 .n-off{
+    display: none;
+}
+.n-wrapper .n-off {
+    display: none;
+}
+
+.n-burger{
+    display: none;
+}
+
+
+.n-active{
+    /* display: none; */
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border: none;
+    padding: 20px;
+    background: #DEDEDE;
+    list-style: none;
+}
+
+.n-active button{
+    background: transparent;
+    border: none;
+    padding: 10px;
+}
+
+.n-profil-icon input {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-top: -65px;
+    margin-left: 3px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.n-profil-icon ul{
+    z-index: -1;
+    display: none;
+}
+
+.n-profil-icon .n-active{
+    z-index: 1;
+    display: block;
+    transition: 1ms;
+}
+
+/* Extra small devices (phones, 337px and down) */
+@media only screen and (max-width:375px) {
+    .n-nav-container {
+        font-family: 'Mulish', sans-serif;
+        width: 375;
+        height: 104px;
+        font-weight: 600;
+        font-size: 16px;
+        color: #414141;
+    }
+
+    .n-logo img{
+        width: 86.14px;
+        margin-top: 8px;
+        z-index: 1;
+    }
+
+    .n-nav1 {
+        display: unset;
+    }
+
+    .n-nav {
+        display: none !important;
+        
+    }
+    
+
+    .n-nav {
+        display: none;
+        
+    }
+
+    .n-btn a{
+        display: none;
+        padding: 15px 60px;
+        background-color: #5F2EEA;
+        margin-right: 0;
+        border-radius: 4px;
+        font-family: 'Mulish' ,sans-serif;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+
+    .b-right{
+        padding-right: 20px;
+    }
+
+    .b-left {
+        margin-left: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+/* COPYAN MULAI DISNI */
+
+.n-nav1 .n-off{
+    display: inline;
+}
+
+.n-wrapper .n-off {
+    display: unset;
+}
+
+
+
+.n-nav {
+        display: none;
+    }
+
+    .n-glyphicon{
+        display: none;
+    }
+
+    .n-pict {
+        display: none;
+    }
+
+    .n-burger{
+        display: flex;
+        flex-direction: column;
+        height: 20px;
+        justify-content: space-between;
+        align-content: center;
+        margin-top: 6px;
+        position: relative;
+    }
+
+    .n-burger input {
+        position: absolute;
+        width: 40px;
+        height: 28px;
+        top: -6px;
+        left: -6px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+
+    .n-burger span{
+        display: block;
+        width: 28px;
+        height: 3px;
+        background-color: darkgray ;
+        border-radius: 3px;
+        transition: all 0.5s ;
+    }
+
+/* Hamburger menu animasi */
+
+    .n-burger span:nth-child(2){
+        transform-origin: 0 0;
+    }
+
+    .n-burger span:nth-child(4){
+        transform-origin: 0 100%;
+    }
+
+
+    .n-burger input:checked ~ span:nth-child(2){
+        background-color: black;
+        z-index: 1;
+    }
+
+    .n-burger input:checked ~ span:nth-child(4){
+        background-color: black;
+        z-index: 1;
+    }
+
+    .n-burger input:checked ~ span:nth-child(3){
+        transform:  scaleX(0.5);
+        background-color: black;
+        z-index: 1;
+
+    }
+
+
+
+    .n-nav1 ul{
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        margin-top: 0;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        z-index: -1;
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    .n-nav1 ul li{
+        margin: 0 ;
+        width: 100% ;
+        padding: 10px 0;
+        text-align:  center;
+        text-decoration: none;
+        text-decoration-style: none;
+        list-style-type: none;
+        background: #FFFFFF;
+        border: 0.5px solid #DEDEDE;
+    }
+
+    
+
+    .n-nav1 ul li a{
+        padding: 5px 10px;
+    }
+
+    .n-nav1 ul li.slide:hover{
+        background-color: rgb(240, 147, 48);
+        transition: 1s;
+    }
+
+    .n-nav1 ul.slide{
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 1;
+        margin: 0;
+        padding: 0;
+    }
+    .n-nav1 ul.slide li:hover{
+        background-color: rgb(240, 147, 48);
+        transition: 1s;
+    }
+
+
+}

@@ -1,0 +1,40 @@
+
+
+.forgot-step{
+    display: flex;
+    justify-content: start;
+}
+
+.forgot-step-num{
+    padding-left: 15px;
+    padding-top:7px
+}
+
+.forgot-step-num{
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.forgot-step-word{
+    margin-left: -70px;
+    padding-top: 10px;
+}
+
+.forgot-step-line{
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    margin-left: 135px;
+    border-right: 3px white solid;
+    margin-top: -10px;
+}
+
+.a-btn{
+    margin-top:48px ;
+    width: 400px;
+    height: 64px;
+    background: #5F2EEA;
+    
+}

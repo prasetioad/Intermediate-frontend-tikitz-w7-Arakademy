@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mulish:wght@300;400;500;600;700&display=swap');
+
+
+.ord-main{
+    display: flex;
+    justify-content:  center;
+    background: #EFF0F7;
+}
+
+.ord-main-container {
+    display: grid;
+    grid-template-columns: 67.86% 32.13%;
+    width: 89.75%;
+    margin-top: 56px;
+}
+
+.ord-main-left {
+    display: grid;
+    grid-template-rows: 18.78% 79.2%;
+    height: 80vw; /* PERLU ganti KE VW*/
+}
+
+.ord-left-head{
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+}
+
+.ord-left-head .ord-choosen {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-top: 24px;
+    padding:35px 59.1px 35px 48px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.ord-left-head .ord-choosen p a{
+    font-weight: bold;
+    font-size: 14px;
+    color: #5F2EEA !important;
+    background: #EFF0F7;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.ord-lb1{
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+}
+
+.ord-map{
+    align-items: center;
+    /* width: 820px; */
+    height: 661px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding-top: 80px;
+    padding-bottom: 26px;
+}
+
+
+
+.ord-map .ord-spot {
+    margin-top: 30px;
+    width: 556px;
+    height: 320px;
+}
+
+.ord-map .ord-spot .ord-spoting{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ord-spot .ord-spot-left{
+    display: flex;
+    justify-content: space-between;
+    padding :2px;
+}
+
+.ord-spot .ord-icon-book{
+    padding: 2px;
+}
+
+.ord-spot-left .ord-row .ord-box{
+    border-radius: 4px;
+}
+
+.ord-spot .ord-spot-right{
+    display: flex;
+    justify-content: space-between;
+    padding :2px;
+}
+/* BATAS MAP KOTAK KOTAK */
+
+.ord-map-bot{
+    margin: 20px;
+    width: 68%;
+}
+
+.ord-map-bot p{
+   font-size: 18px;
+   font-weight: 600;
+   line-height: 34px;
+   letter-spacing: 0.75px;
+   color:black ;
+}
+
+.ord-key{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    
+}
+.ord-key p{
+    letter-spacing: 0.75px;
+    color: #4E4B66 !important;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.ord-left-bot .ord-btn{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 40px;
+    color:  #5F2EEA;
+
+}
+
+.ord-left-bot .ord-btn a{
+    border: 2px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 300px;
+    padding: 10px 50px;
+    border-radius: 4px;
+    
+}
+
+.ord-left-bot .ord-btn .ord-change {
+    color: #5F2EEA !important;
+}
+
+.ord-left-bot .ord-btn .ord-checkout{
+    background:#5F2EEA ;
+    color:  #F7F7FC !important;
+}
+/* MAIN LEFT SELESAI */
+/* MAIN RIGHT */
+
+.ord-main-right{
+    width: 382px;
+    height: 413px;
+    margin-top: 11px;
+    margin-left: 20px;
+}
+
+.ord-order-info{
+    text-align: center;
+    background: #FFFFFF;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+.ord-order-info .ord-cinema {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color:  #14142B;
+}
+
+.ord-order-info .ord-detil {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin: 5px 30px;
+    
+}
+
+
+.ord-order-info .ord-detil .ord-d1{
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #6B6B6B;
+}
+
+.ord-ord-order-info .ord-ord-detil .ord-ord-d2{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #14142B;
+}
+
+.ord-hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ord-order-info .ord-pay {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.ord-order-info .ord-pay .ord-p1{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color: black;
+}
+
+.ord-order-info .ord-pay .ord-p2{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #5F2EEA;
+}
+
+.ord-style-map-p{
+text-align: center
+}
+
+.ord-style-abjad{
+padding-right: 5px;
+}
+
+.ord-spot-left-a{
+padding-right: 5px; color: white;
+}
+
+.ord-icon-book-p{
+border:8.5px solid white;
+}
+
+.ord-icon-book-p-2{
+border:4.5px solid white;
+}
+
+.ord-key-img{
+width: 26px; height: 26px;
+}
+
+.ord-style-ord-info{
+padding-top: 20px;
+}

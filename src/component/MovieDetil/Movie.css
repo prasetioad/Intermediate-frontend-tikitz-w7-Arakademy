@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mulish:wght@300;400;500;600;700&display=swap');
+
+.m-header-container{
+    display: grid;
+    grid-template-columns: 31vw 20vw;
+    font-family: 'Mulish',sans-serif;
+    height:594px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.m-header-left{
+    margin-left: 6.8vw;
+}
+
+.m-header-left img{
+    height: 400px;
+    padding:20px 20px;
+    border: 2px solid #DEDEDE;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+/* Batas Head Left */
+
+.m-header-right{
+    display: grid;
+    grid-template-rows: auto auto;
+    padding-left: 3vw;
+    height: 18vw;
+    width: 56vw;
+}
+
+.m-header-right hr{
+    width: 105%;
+}
+.m-top-container .m-title{
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 2vw;
+    letter-spacing: 1px;
+    color: #14142B;
+}
+.m-top-container .m-title p{
+    font-size: 0.7vw;
+    line-height: 2vw;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+}
+
+.m-top-header{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 1.8vw;
+}
+
+.m-detil .m-date{
+    padding-top: 1vw;
+}
+
+.m-top-header .m-date{
+    font-size: 1vw;
+    letter-spacing: 0.75px;
+    color: #8692A6;
+}
+
+.m-top-header .m-duration{
+    font-size: 1.2vw;
+    color: #121212;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.m-bot-container .m-synopsis{
+    font-weight: 600;
+    font-size: 1.5vw;
+    line-height: 2vw;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+.m-bot-container p{
+    font-size: 1vw;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+    
+}
+
+.m-main-container{
+    height: 90vw;
+    width: 98.72vw;
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px;
+    letter-spacing: 0.75px;
+    color: #6E7191;
+    background: #F5F6F8;
+}
+
+.m-main-title{
+    padding-top: 5vw;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+    text-align: center;
+}
+
+.m-main-data-order{
+    text-align: center;
+    margin-top: 4vw;
+    margin-bottom: 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.m-order-date{
+    display: flex;
+    justify-content: space-evenly;
+    background: #EFF0F6;
+    border-radius: 6px;
+    margin: 1vw;
+    padding: 3px;
+    text-align: center;
+}
+
+.m-order-date .location{
+    display: flex;
+    padding: 5px 20px;
+}
+
+.m-order-date .item{
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+.m-menu{
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    width: 88.2%;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.m-card{
+    width:27.8vw; 
+    height: 27vw;
+    border-radius: 8px;
+    margin-left: 8px;
+    margin-top: 32px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
+    border-radius: 8px;
+}
+
+.m-card-head{
+    display: grid;
+    grid-template-columns: 52% 48%;
+    margin: 0;
+    padding: 0;
+    height: 9.3vw;
+    border-bottom: 0.5px solid #DEDEDE; 
+}
+
+.m-card-head img{
+    margin: auto;
+}
+
+.m-card-head .m-profile {
+    margin-top: 24px;
+    padding-right: 24px;
+}
+
+.m-card-head .m-instansi{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #000000;
+}
+
+.m-card .m-time{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.m-time p:focus{
+    border:1px blue solid;
+    color :blue;
+}
+
+.m-time button{
+    background:transparent;
+    margin:0;
+    padding:0px;
+    width:2x;
+    height:20px;
+}
+
+.m-card .m-time p {
+    padding-left: 16px;
+    padding-top: 8px;
+}
+.m-card .m-time p:hover {
+    color: blue;
+}
+
+.m-card .m-time p:focus {
+    color:red;
+    border:1px;
+    background:blue;
+}
+.m-card .m-price{
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.m-card .m-price .m-p1{
+    font-size: 16px;
+    padding-left: 32px;
+}
+.m-card .m-price .m-p2{
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: auto;
+    padding-right: 24px;
+    letter-spacing: 0.75px;
+    color: #000000;
+}
+
+.m-card .m-main-action{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.m-card .m-main-action .m-btn{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    height: 40px;
+
+}
+.m-card .m-main-action .m-btn p{
+    color: white;;
+    background-color: #5F2EEA;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.m-btn  button {
+    border: none;
+    
+}
+
+
+
+.m-card .m-main-action .m-add{
+    font-size: 14px;
+    letter-spacing: 0.75px;
+    text-align: right;
+    margin-right: 24px;
+    margin-top: auto;
+    color: #5F2EEA;
+}
+.m-card .m-main-action div{
+    text-align: left;
+    margin-left: 24px;
+    margin-top: 32px;
+
+}
+
+.m-line{
+    display:flex; 
+    justify-content: space-evenly; 
+    margin-top: 4vw;
+}
+
+.m-line a {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+}
+
+
+hr{
+    margin-top: 1.1vw;
+    width: 34%;
+}

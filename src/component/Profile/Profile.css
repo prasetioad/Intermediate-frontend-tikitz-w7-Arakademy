@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mulish:wght@300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+.root{
+    background: #E5E5E5;
+}
+
+.prof-body-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 56px;
+    
+}
+
+
+.prof-left{
+    width: 328px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
+    border-radius: 6px;
+    border: 1px solid #DEDEDE;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    /* identical to box height, or 200% */
+
+    letter-spacing: 0.75px;
+
+    /* Text - Body */
+
+    color: #4E4B66;
+}
+
+.prof-lef-up{
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 40px;
+}
+
+.prof-left-pict{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #DEDEDE;
+}
+
+.prof-left-img img{
+    height: 136px;
+    border-radius: 50%;
+}
+
+.prof-left-pict form{
+    display: inline-block;
+    padding: 0;
+    top: 320px;
+    left: 140px;
+
+    position: absolute;
+    opacity: 0;
+    width: 20px;
+    
+}
+
+.prof-left-pict form:hover{
+    background-color: #5F2EEA ;
+    opacity: 0.3;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.prof-left-pict input[type=file]{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    content: none;
+    background-color: #5F2EEA ;
+}
+
+.prof-left-name{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 34px;
+    margin-top: 32px;
+    margin-bottom: 0;
+}
+
+.loyalty{
+   margin-top: 40px;
+}
+
+.loyalty p {
+    margin-left: 50px;
+    margin-top: 26px;
+}
+
+.loyalty-card{
+    background-image: url('../../Rectangle\ 571.png');
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+    height: 170px;
+    text-align: center;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* identical to box height, or 189% */
+    
+    letter-spacing: 0.75px;
+    
+    color: #FFFFFF;
+}
+
+.loyalty-card .star-bot{
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+}
+
+.star-bot span{
+    font-size: 10px;
+line-height: 24px;
+}
+.prof-star{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.prof-star p{
+    margin-top: 25px;
+    margin-left: 0;
+}
+
+.prof-star img {
+    margin-top: 10px;
+}
+
+
+.line-process-bar{
+    width: 248px;
+    height: 16px;
+    background: #F5F6F8;
+    box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
+    border-radius: 8px;
+    margin-left: 40px;
+
+}
+
+.process-bar{
+    background-color: #5F2EEA;
+    border-radius: 8px;
+    margin-left: 40px;
+    width: 40%;
+    height: 16px;
+}
+
+/*   BATAS  */
+
+.prof-right{
+    width: 866px;
+    height: 871px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+}
+
+.prof-right .prof-right-item{
+    display: flex;
+    justify-content: start;
+    border: 1px solid #DEDEDE;
+    padding: 26px 56px 24px 32px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    /* identical to box height, or 200% */
+
+    letter-spacing: 0.75px;
+
+    /* Text - Title */
+
+    color: #14142B;
+}
+
+.prof-prof button{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    margin: 3px 5px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.prof-prof button{
+    color: #AAAAAA;
+}
+
+.prof-prof button:focus{
+    color: #5F2EEA;
+    border: 1px solid #5F2EEA;
+}
+
+
+
+
+.prof-right-input{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.prof-right-name input{
+    padding-left: 24px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.75px;
+    color: #A0A3BD;
+}
+
+
+
+.prof-right-input .prof-name{
+    margin-top: 25px;
+}
+
+.prof-right-form{
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 24px;
+    /* identical to box height */
+
+    /* Text - Body */
+
+    color: #4E4B66;
+}
+
+.prof-right-form form input{
+    background: #FCFDFE;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 384px;
+    height: 64px;
+}
+
+
+.prof-right-privacy p {
+    margin-top: 56px;
+    margin-left: 32px;
+}
+.prof-right-privacy{
+    
+    border-bottom: 1px solid #DEDEDE;
+}
+
+.prof-password{
+    margin-top: 50px;
+}
+
+.prof-btn p {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    /* or 175% */
+
+    text-align: center;
+    letter-spacing: 0.75px;
+
+    /* Grayscale / Background */
+
+    color: #F7F7FC;
+}
+
+.prof-btn{
+    margin-top: 56px;
+    margin-left: 32px;
+    background: #5F2EEA;
+    border-radius: 4px; 
+    width: 360px;
+    height: 56px;
+    text-align: center;
+    
+}
+.cityAccount {
+    display: block;
+}
+
+.cityHistory{
+    display: none;
+}
+
+.city-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.history-card{
+    width: 802px;
+    height: 250px;
+    background: #FFFFFF;
+    border: 0.5px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+}
+
+.history-card-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 32px 35px;
+    border-bottom: 1px solid #DEDEDE;;
+}
+
+.history-card-bot {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 32px;
+    border-radius: 4px;
+    color: #F7F7FC;
+}
+
+.history-card-btn{
+    display: flex;
+}
+
+.history-card-btn button{
+    margin-left: 10px;
+    width: 75px;
+    height: 40px;
+    border: none;
+    color: #FFFFFF;
+    background: red !important;
+    border-radius: 4px;
+}
+
+.history-card-bot p{
+    letter-spacing: 0.75px;
+    background: #00BA88;
+    border-radius: 4px;
+    padding: 10px 35px;
+}
+
+.history-card-bot button{
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        outline:none;
+        letter-spacing: 0.75px;
+        color: #AAAAAA;
+        
+}
