@@ -1,17 +1,7 @@
 import React, { Component } from 'react'
 import './Navbar.css'
 import axios from 'axios'
-import Tiketlist from '../Tiketlist/Tikets'
 import { withRouter} from 'react-router-dom'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Redirect
-  } from "react-router-dom";
-import store from '../../configs/redux/store'
-import {connect} from 'react-redux'
  
 
 

@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 import './Register.css'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link,
-    Redirect
   } from "react-router-dom";
 import axios from 'axios';
-import Signin from '../signin/Signin'
-
 
 class Register extends Component {
 

@@ -1,12 +1,9 @@
 
-import React, { useState, useEffect, Component} from 'react'
+import React, { Component} from 'react'
 import './Tikets.css'
 import axios from 'axios'
 import { Navbar } from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
-
-import { Link } from 'react-router-dom'
-
 
 
 class Tiketlist extends Component {

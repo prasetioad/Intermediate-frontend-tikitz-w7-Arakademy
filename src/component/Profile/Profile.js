@@ -5,7 +5,6 @@ import './Profile.css'
 import axios from 'axios'
 import TiketCard from './tiketCard'
 import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
 
 export class Profile extends Component {
     state = {
