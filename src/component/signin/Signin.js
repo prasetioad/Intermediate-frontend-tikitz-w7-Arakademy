@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
 import './Signin.css'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 import axios from 'axios'
 import { withRouter} from 'react-router-dom'
 
