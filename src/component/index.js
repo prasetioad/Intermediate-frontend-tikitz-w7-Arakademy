@@ -7,9 +7,8 @@ import {
   Link
 } from 'react-router-dom'
 import axios from 'axios'
-import {Provider} from 'react-redux'
+import { Provider, useSelector, useDispatch } from 'react-redux'
 import store from './configs/redux/store'
-import {useSelector, useDispatch} from 'react-redux'
 
 import Navbar from './component-source/Navbar/Navbar'
 import Footer from './component-source/Footer/Footer'
@@ -27,60 +26,57 @@ import ForgotPassowrd from './forgot-password/ForgotPassword'
 import TicketResult from './Ticket-result/Ticket-Result'
 import authForgot from './component-source/page-auth-password/auth-forgot'
 import PrivateRoute from '../PrivateRoutes/PrivateRoutes'
-import { useHistory } from "react-router";
+import { useHistory } from 'react-router'
 
 function Index (props) {
-  const [data, setData] = useState(0);
-  const {user} = useSelector( state => state.user)
-  const {transaction}= useSelector( state => state.transaction)
+  const [data, setData] = useState(0)
+  const { user } = useSelector(state => state.user)
+  const { transaction } = useSelector(state => state.transaction)
   const dispatch = useDispatch()
-  const history = useHistory()   
-
-
+  const history = useHistory()
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const url = process.env.REACT_APP_API_HOST;
-    if(typeof token == 'string'){
-        axios.get(url +`/users/profile/${token}`,{ headers: {Authorization: `Bearer ${localStorage.getItem('token')}`,}})
-        .then((res) =>{
-            console.log('get di index '+ res.data)
-            dispatch({
-                type:"GET_PROFILE", 
-                payload: res.data.data
-            })
-            console.log('effek index berjalan, state terisi,', user);
+    const token = localStorage.getItem('token')
+    const url = process.env.REACT_APP_API_HOST
+    if (typeof token === 'string') {
+      axios.get(url + `/users/profile/${token}`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+        .then((res) => {
+          console.log('get di index ' + res.data)
+          dispatch({
+            type: 'GET_PROFILE',
+            payload: res.data.data
+          })
+          console.log('effek index berjalan, state terisi,', user)
         })
-    } 
+    }
     dispatch({
-      type:"GET_PRODUCT",
+      type: 'GET_PRODUCT',
       payload: 'Rotii marii'
     })
     // alert(user)
     // if(token ){
 
     // }
-  },[]);
+  }, [])
 
-  const signOutHandler = ()=>{
-    localStorage.removeItem('token');
+  const signOutHandler = () => {
+    localStorage.removeItem('token')
     history.push('/signin')
   }
 
-
   return (
-    <Provider  store={store}>
+    <Provider store={store}>
       <Router>
         <Switch>
-          <Route path='/navbar' component={Navbar} signOutHandler={()=>signOutHandler()}/>
-          <Route  exact  path='/' component={Home}/>
-          <Route path='/signup'component={Register}/> 
-          <Route path='/signin'component={Signin}/>
-          <PrivateRoute path='/payment'component={Payment}/>
-          <Route path='/profile'component={Profile}/>
-          <Route path='/movie-detil/:id'component={Movie}/>
-          <Route path='/tikets' component={Tiketlist}/>
-          <Route path='/auth/:id' component={Authorization}/>
+          <Route path='/navbar' component={Navbar} signOutHandler={() => signOutHandler()} />
+          <Route exact path='/' component={Home} />
+          <Route path='/signup' component={Register} />
+          <Route path='/signin' component={Signin} />
+          <PrivateRoute path='/payment' component={Payment} />
+          <Route path='/profile' component={Profile} />
+          <Route path='/movie-detil/:id' component={Movie} />
+          <Route path='/tikets' component={Tiketlist} />
+          <Route path='/auth/:id' component={Authorization} />
           <PrivateRoute path='/admin' component={Admin} />
           <PrivateRoute path='/order' component={Order} />
           <PrivateRoute path='/ticket-result' component={TicketResult} />

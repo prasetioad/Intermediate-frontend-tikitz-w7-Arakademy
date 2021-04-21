@@ -6,6 +6,7 @@ import axios from 'axios'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import CardProvider from './CardProvider'
+import {updateProvider, updateMovie, updateDate, updateLocation, getprovider} from '../configs/redux/action/providerAction'
 
 export class Movie extends Component {
   constructor(props) {
@@ -26,13 +27,7 @@ export class Movie extends Component {
           movie: res.data.result
         })
       })
-      axios.get(process.env.REACT_APP_API_HOST+`/provider`)
-      .then((res) =>{
-        console.log(res.data.result)
-        this.setState({
-          provider: res.data.result
-        })
-      })
+      this.props.getprovider()
   }
 
   handleBook = (provId) => {
@@ -143,7 +138,7 @@ export class Movie extends Component {
             </div>
             <div className="m-menu">
               {
-                this.state.provider.map(item => {
+                this.props.provider.map(item => {
                   return <CardProvider key={item.id}
                   id={item.id}
                   name={item.name}
@@ -171,16 +166,18 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     transaction: state.transaction,
-    provider: state.provider,
+    provider: state.provider.provider,
     movie: state.movie
+
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  updateProvider: (data) =>{ dispatch({type: 'UPDATE_PROVIDER', payload: data})},
-  updateMovie: (data) => {dispatch({type: 'UPDATE_MOVIE', payload: data})},
-  updateDate: (data) => {dispatch({type: 'UPDATE_DATE', payload: data})},
-  updateLocation: (data) => {dispatch({type: 'UPDATE_LOCATION', payload: data})},
+  getprovider: () =>{dispatch(getprovider())},
+  updateProvider: (data) =>{ dispatch(updateProvider(data))},
+  updateMovie: (data) => {dispatch(updateMovie(data))},
+  updateDate: (data) => {dispatch(updateDate(data))},
+  updateLocation: (data) => {dispatch(updateLocation(data))},
   // return {
   //   updateProvider: (data) =>{ dispatch({type: 'UPDATE_PROVIDER', payload: data})},
   //   updateMovie: (data) => {dispatch({type: 'UPDATE_MOVIE', payload: data})}

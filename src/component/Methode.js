@@ -27,7 +27,7 @@
 //                 <h3>Mungkin ini yang anda cari?</h3>
 //                 {
 //                     this.state.data.map(data => {
-//                         return <Tiketlist key={data.data.id} name={data.data.name} date={data.data.date} 
+//                         return <Tiketlist key={data.data.id} name={data.data.name} date={data.data.date}
 //                         price={data.data.price} name={data.data.name} nameCategory={data.data.nameCategory}/>
 //                     })
 //                 }

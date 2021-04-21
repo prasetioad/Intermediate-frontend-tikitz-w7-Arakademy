@@ -3,18 +3,15 @@ import React from 'react'
 import './App.css'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Switch
 } from 'react-router-dom'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import store from '../src/component/configs/redux/store'
 import Index from './component/index'
 
-
 function App () {
   return (
-    <Provider  store={store}>
+    <Provider store={store}>
       <Router>
         <Switch>
           <Index />
