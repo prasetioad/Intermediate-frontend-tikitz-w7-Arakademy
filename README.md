@@ -26,6 +26,6 @@ Menampilkan detil dari pembelian tiket yang telah dipesan.
 
 ### Kunjungi
 * [Netlify](https://bioskopnya-wisnu.netlify.app/)
-* 
+
 ### Backend
 https://github.com/prasetioad/Intermediet-backend-tikitz-w6-Arkademy
