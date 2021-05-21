@@ -55,9 +55,6 @@ npm start
 ## Documentation
 * Dokumentasi akan segera di update
 
-### Front End
-* https://github.com/prasetioad/Intermediate-frontend-tikitz-w7-Arakademy
-
 ### Back End
 * https://github.com/prasetioad/Intermediet-backend-tikitz-w6-Arkademy
 
