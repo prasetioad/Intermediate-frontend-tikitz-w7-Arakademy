@@ -24,8 +24,21 @@ Menampilkan detil dari pembelian tiket yang telah dipesan.
 ### Profile page
 ![PROFIL](https://user-images.githubusercontent.com/66661143/116281028-7c389680-a7b3-11eb-89b6-635a8717ac5c.png)
 
-### Kunjungi
+## Built Using
+* NextJS
+* React Modal Packages
+* React Icon packages
+
+## Documentation
+
+### Front End
+* https://github.com/prasetioad/Intermediate-frontend-tikitz-w7-Arakademy
+
+### Back End
+* https://github.com/prasetioad/Intermediet-backend-tikitz-w6-Arkademy
+
+## Live Demo
 * https://bioskopnya-wisnu.netlify.app/
 
-### Backend
-https://github.com/prasetioad/Intermediet-backend-tikitz-w6-Arkademy
+## Author
+* [@prasetioad](https://github.com/prasetioad)
