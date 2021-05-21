@@ -1,28 +1,47 @@
 
-# About
+# Tikitz
 Tikitz, aplikasi pemesanan tiket online yang dibuat menggunakan Javascript.
 
-### About
+## Get Started
+### Prerequisites
 
-### Teknologi
-* Javascript
-* Express js
-* React js
-* Mysql
+This is an example of how to list things you need to use the software and how to install them.
+* [NodeJs](https://nodejs.org/en/)
+
+
+## Instalation
+1. Clone the repo
+
+```
+git clone https://github.com/prasetioad/Intermediate-frontend-tikitz-w7-Arakademy.git
+
+```
+2. Install NPM Packages 
+```
+npm install
+```
+3. Add .env file at root folder project, and add following
+```
+# -------------------ENV------------------
+REACT_APP_API_HOST = http://localhost:6400
+#https://tikitzhmm.fwdev.online
+
+```
+4. run
+``` 
+npm start 
+```
 
 ### Home page
-![Untitled-7](https://user-images.githubusercontent.com/66661143/116281038-7e025a00-a7b3-11eb-87ca-7d021811ced8.jpg)
+<img src="https://user-images.githubusercontent.com/66661143/116281038-7e025a00-a7b3-11eb-87ca-7d021811ced8.jpg"  height="300"> 
 ### Movie Detil page
-Menampilkan detil pada movie yang ada sekaligus halaman yang menampilkan lokasi dan waktu yang tersedia untuk di pesan
-![Untitled-6](https://user-images.githubusercontent.com/66661143/116281036-7d69c380-a7b3-11eb-82a0-2744faf14c79.jpg)
+<img src="https://user-images.githubusercontent.com/66661143/116281036-7d69c380-a7b3-11eb-82a0-2744faf14c79.jpg"  height="300"> 
 ### Order page
-Menampilkan peta dari bangku-bangku yang tersedia.
-![ORDER](https://user-images.githubusercontent.com/66661143/116281019-7a6ed300-a7b3-11eb-8271-c7870e58b9d3.png)
+<img src="https://user-images.githubusercontent.com/66661143/116281019-7a6ed300-a7b3-11eb-8271-c7870e58b9d3.png"  height="300">
 ### Payment page
-Menampilkan detil dari pembelian tiket yang telah dipesan.
-![PAYMENT PAGE](https://user-images.githubusercontent.com/66661143/116281304-c6217c80-a7b3-11eb-980f-ec91420c2837.png)
+<img src="https://user-images.githubusercontent.com/66661143/116281304-c6217c80-a7b3-11eb-980f-ec91420c2837.png"  height="300">
 ### Profile page
-![PROFIL](https://user-images.githubusercontent.com/66661143/116281028-7c389680-a7b3-11eb-89b6-635a8717ac5c.png)
+<img src="https://user-images.githubusercontent.com/66661143/116281028-7c389680-a7b3-11eb-89b6-635a8717ac5c.png"  height="300">
 
 ## Built Using
 * NextJS
