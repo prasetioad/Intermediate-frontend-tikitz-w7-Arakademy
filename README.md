@@ -1,31 +1,68 @@
-
-# About
+<p align="center">
+  <a href="" rel="noopener">
+ <img height=auto src="https://user-images.githubusercontent.com/66661143/119432707-01758380-bd3f-11eb-9b1b-3b8d1ad56749.png" alt="logo"></a>
+</p>
+<div align="center">
+  
+[![made-with-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3e5e5f0e-297c-4bbe-85d7-12793c76f338/deploy-status)](https://incafe.netlify.app/)   
+</div>
+  
+# Tikitz
 Tikitz, aplikasi pemesanan tiket online yang dibuat menggunakan Javascript.
 
-### About
+## Get Started
+### Prerequisites
 
-### Teknologi
-* Javascript
-* Express js
-* React js
-* Mysql
+This is an example of how to list things you need to use the software and how to install them.
+* [NodeJs](https://nodejs.org/en/)
 
-### Home page
-![Untitled-7](https://user-images.githubusercontent.com/66661143/116281038-7e025a00-a7b3-11eb-87ca-7d021811ced8.jpg)
-### Movie Detil page
-Menampilkan detil pada movie yang ada sekaligus halaman yang menampilkan lokasi dan waktu yang tersedia untuk di pesan
-![Untitled-6](https://user-images.githubusercontent.com/66661143/116281036-7d69c380-a7b3-11eb-82a0-2744faf14c79.jpg)
-### Order page
-Menampilkan peta dari bangku-bangku yang tersedia.
-![ORDER](https://user-images.githubusercontent.com/66661143/116281019-7a6ed300-a7b3-11eb-8271-c7870e58b9d3.png)
-### Payment page
-Menampilkan detil dari pembelian tiket yang telah dipesan.
-![PAYMENT PAGE](https://user-images.githubusercontent.com/66661143/116281304-c6217c80-a7b3-11eb-980f-ec91420c2837.png)
-### Profile page
-![PROFIL](https://user-images.githubusercontent.com/66661143/116281028-7c389680-a7b3-11eb-89b6-635a8717ac5c.png)
 
-### Kunjungi
+## Instalation
+1. Clone the repo
+
+```
+git clone https://github.com/prasetioad/Intermediate-frontend-tikitz-w7-Arakademy.git
+
+```
+2. Install NPM Packages 
+```
+npm install
+```
+3. Add .env file at root folder project, and add following
+```
+# -------------------ENV------------------
+REACT_APP_API_HOST = http://localhost:6400
+#https://tikitzhmm.fwdev.online
+
+```
+4. run
+``` 
+npm start 
+```
+
+## Screenshoot
+<p float="left">
+<img src="https://user-images.githubusercontent.com/66661143/119270289-304c0680-bc26-11eb-987c-db938391f11f.jpg"  height="220"> 
+<img src="https://user-images.githubusercontent.com/66661143/119270048-fd554300-bc24-11eb-9482-b12d9af12400.jpg"  height="220">  
+<img src="https://user-images.githubusercontent.com/66661143/119270288-2fb37000-bc26-11eb-8f07-5adc22ff7ed1.jpg"  height="220"> 
+<img src="https://user-images.githubusercontent.com/66661143/119434453-6da5b680-bd42-11eb-89d8-b54c75455813.jpg"  height="220">
+<img src="https://user-images.githubusercontent.com/66661143/119270052-fe867000-bc24-11eb-8fa1-f7e2184c1656.jpg"  height="220">
+</p>
+
+## Built Using
+* NextJS
+* React Modal Packages
+* React Icon packages
+
+## Documentation
+* Dokumentasi akan segera di update
+
+### Back End
+* https://github.com/prasetioad/Intermediet-backend-tikitz-w6-Arkademy
+
+## Live Demo
 * https://bioskopnya-wisnu.netlify.app/
 
-### Backend
-https://github.com/prasetioad/Intermediet-backend-tikitz-w6-Arkademy
+## Author
+* [@prasetioad](https://github.com/prasetioad)
