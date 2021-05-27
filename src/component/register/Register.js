@@ -4,6 +4,7 @@ import {
     Link,
   } from "react-router-dom";
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 class Register extends Component {
 
@@ -25,7 +26,18 @@ class Register extends Component {
             axios.post(url, data)
             .then((res) =>{
                 console.log(res);
-                alert('berhasil')
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Check your email!'
+                })
+            })
+            .catch((err)=>{
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Opps!',
+                    text: err.response.data.error.email
+                })
             })
     }
     handleInputChange = (event) => { 
@@ -92,7 +104,7 @@ class Register extends Component {
                     </div>
                 </div>
                 </header>
-                <main>
+                <main style={{width: '100%'}}>
                     <div className="a-main-left">
                         <div className="a-sign">
                             <p className="a-register">Fill your additional details</p>
@@ -120,7 +132,7 @@ class Register extends Component {
 
                             <br/>
                             <p className='a-checkbox'><input type="checkbox" className='a-boxcheck'/>I agree to terms & conditions</p>
-                            <button className="a-btn" > <Link to="/signup" >Register</Link></button>
+                            <button className="a-btn" onClick={(e)=>{this.CreatNewUser(e)}}>Register</button>
                         </form>
                         <p className="a-reset">Do you already have an account? <Link to="/signin">Log in</Link> </p>
                         <div className="a-line">

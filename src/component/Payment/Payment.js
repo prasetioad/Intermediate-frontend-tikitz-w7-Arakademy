@@ -30,17 +30,24 @@ export class Payment extends Component {
                 seats: seats.length
             })
         }
-
+        console.log(this.props.provider);
+        if(this.props.provider.provLoc.name){
+            return
+        }else{
+            this.props.history.push('/signin')
+        }
+        console.log('jalan order');
     }
 
     paymentHandler = (e) =>{
         e.preventDefault()
         const url = process.env.REACT_APP_API_HOST;
+        console.log(this.props.provider);
         const data = {
             transaction_id: this.state.dataUser.userid,
             movie: this.props.movie.movie.name,
-            provider: this.props.provider.provider.name,
-            location: this.props.provider.provider.place,
+            provider: this.props.provider.provLoc.name,
+            location: this.props.provider.provLoc.place,
             date: this.props.provider.date,
             time: this.props.provider.time,
             category:this.props.movie.movie.nameCategory,
@@ -61,15 +68,18 @@ export class Payment extends Component {
         })
     }
     
-
-
+    
     render() {
+        if(this.props.movie.movie.name){
+            console.log('ok');
+        }else{
+            this.props.history.push('/')
+        }
         console.log(this.props.provider);
-        console.log(this.props.transaction);
-        console.log(this.state.dataUser.userid);
         return (
             <div className='main'>
                 <Navbar />
+                {this.props.provider &&
                      <div class="p-container">
                         <div class="p-flex">
                          <div class="p-left">
@@ -89,7 +99,7 @@ export class Payment extends Component {
                                     </div>
                                     <div class="p-detil">
                                     <p class="p-exp1">Cinema name</p>
-                                    <p class="p-exp2">{this.props.provider.provider.name}</p>
+                                    <p class="p-exp2">{this.props.provider.provLoc.name}</p>
                                     </div>
                                     <div class="p-detil">
                                     <p class="p-exp1">Number of tickets</p>
@@ -103,7 +113,7 @@ export class Payment extends Component {
                                 {/* )
                             })
                             } */}
-                        <div>
+                        <div className='choosePaymentWrapper'>
                             <p class="p-title">Choose a Payment Method</p>
                             <div class="p-display">
                             <div class="p-opt-wrapper">
@@ -200,6 +210,7 @@ export class Payment extends Component {
                             </div>
                             </div>
                         </div>
+                        }
                         <Footer />
                 </div>
         )

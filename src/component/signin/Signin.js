@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Signin.css'
 import axios from 'axios'
 import { withRouter} from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 class Signin extends Component {
 
@@ -13,7 +14,9 @@ class Signin extends Component {
         }
     }
 
-  
+  componentDidMount(){
+    
+  }
 
         Login = (event) =>{
             event.preventDefault()
@@ -25,13 +28,18 @@ class Signin extends Component {
             // console.log(data);
             axios.post(url, data)
             .then((res)=>{
-                // console.log(res);
-                const token = res.data.result
-                localStorage.setItem('token', token)
+                console.log(res);
+                localStorage.setItem('userId', res.data.result.userid)
+                localStorage.setItem('token', res.data.result.token)
+                localStorage.setItem('role', res.data.result.role)
                 this.props.history.push('/')
             })
             .catch((err)=>{
-                alert(err)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'error',
+                    text: err.response.data.error.email
+                })
             })
         }
 
@@ -58,7 +66,7 @@ class Signin extends Component {
                     </div>
                 </div>
                 </header>
-                <main>
+                <main style={{width: '100vw'}}>
                     <div className="s-main-left">
                         <div className="s-sign">
                             <p className="s-signin">Sign In</p>

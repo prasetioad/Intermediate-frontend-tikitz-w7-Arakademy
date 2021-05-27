@@ -39,7 +39,7 @@
     border-radius: 6px;
 }
 
-.ord-left-head .ord-choosen p a{
+.ord-left-head .ord-choosen p span{
     font-weight: bold;
     font-size: 14px;
     color: #5F2EEA !important;
@@ -268,4 +268,118 @@ width: 26px; height: 26px;
 
 .ord-style-ord-info{
 padding-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .ord-main-container {
+        display: flex;
+        flex-direction: column-reverse;
+        grid-template-columns: 67.86% 32.13%;
+        width: 89.75%;
+        margin-top: 56px;
+    }
+    .ord-main-left {
+        display: flex;
+        flex-direction: column;
+        height: auto; /* PERLU ganti KE VW*/
+        margin-top: 20px;
+    }
+    .ord-map{
+        align-items: center;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        /* font-family: 'Mulish', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.75px;
+        color: #4E4B66;
+        background: #FFFFFF;
+        border-radius: 6px;
+        padding-top: 80px;
+        padding-bottom: 26px; */
+    }
+    .ord-map .ord-spot {
+        margin-top: 30px;
+        width: auto;
+        height: auto;
+    }
+    .ord-map-bot{
+        margin: auto;
+        width: 100%;
+    }
+    
+    .ord-main-right{
+        width: 100%;
+        height: auto;
+        margin-top: 11px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ord-left-bot{
+        margin-top: 20px;
+    }
+    .ord-left-bot .ord-btn a{
+        border: 2px solid #5F2EEA;
+        box-sizing: border-box;
+        border-radius: 4px;
+        width: 100%;
+        padding: 10px 10px;
+        border-radius: 4px;
+        
+    }
+    .ord-key{
+        display: flex;
+        justify-content: space-around;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+    .ord-map .ord-spot {
+        margin-top: 30px;
+        width: 100%;
+        height: 320px;
+        overflow: auto;
+    }
+    .ord-spot .ord-icon-book img{
+        width: 20px;
+    }
+    .ord-spoting-numb{
+        display: none !important;
+    }
+    .ord-main-right .ord-lb1{
+        font-size: 23px;
+    }
+    .ord-left-head{
+        font-size: 23px;
+    }
+    .ord-left-head{
+        font-size: 18px;
+    }
+    .ord-order-info .ord-pay .ord-p1{
+        font-size: 18px;
+    }
+    .ord-order-info .ord-pay .ord-p2{
+        font-size: 18px;
+    }
+    .ord-left-head .ord-choosen {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        margin-top: 24px;
+        padding:20px 20px 20px 30px;
+        background: #FFFFFF;
+        border-radius: 6px;
+        width: 100%;
+    }
+    
+    .ord-left-head .ord-choosen p a{
+        font-weight: bold;
+        font-size: 14px;
+        color: #5F2EEA !important;
+        background: #EFF0F7;
+        padding: unset;
+        border-radius: 8px;
+    }
 }

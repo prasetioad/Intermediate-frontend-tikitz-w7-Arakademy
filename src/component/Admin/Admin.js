@@ -3,10 +3,11 @@ import './admin.css'
 import Footer from '../component-source/Footer/Footer'
 import { Navbar } from '../component-source/Navbar/Navbar'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export class Admin extends Component {
     state = {
-        image: [],
+        image:null,
         movieName: null,
         category: null,
         release_date: null,
@@ -14,6 +15,7 @@ export class Admin extends Component {
         director: null,
         cast: null,
         synopsis: null,
+        provider: [],
         
         name:null,
         location: null,
@@ -31,46 +33,35 @@ export class Admin extends Component {
     creatTiketHandler= () =>{
         const formData = new FormData();
             formData.append('name', this.state.movieName)
-            formData.append('category ', this.state.category)
+            formData.append('category', this.state.category)
             formData.append('release_date', this.state.release_date)
             formData.append('duration', this.state.duration)
             formData.append('director', this.state.director)
             formData.append('cast', this.state.cast)
             formData.append('synopsis', this.state.synopsis)
+            formData.append('provider', this.state.provider)
             formData.append('image', this.state.image)
             console.log(formData);
-            // axios.post(process.env.REACT_APP_API_HOST+`/tikets`, formData)
-            // .then((res)=>{
-            //     console.log(res)
-            // })
-            // .catch((err) =>{
-            //     console.log('Failed!');
-            // })
-            const provData ={
-                name:this.state.name,
-                location: this.state.location,
-                place: this.state.place,
-                date: this.state.date,
-                time1: this.state.time1,
-                time2: this.state.time2,
-                time3: this.state.time3,
-                time4: this.state.time4,
-                time5: this.state.time5,
-                time6: this.state.time6,
-                time7: this.state.time7,
-            }
-            // axios.post(process.env.REACT_APP_API_HOST+`/provider`, provData)
-            // .then((res) =>{
-            //     console.log('prov Success', res);
-            //     alert('Success')
-            // })
-            // .catch((err) =>{
-            //     console.log('error', err);
-            // })
+            axios.post(process.env.REACT_APP_API_HOST+`/tikets`, formData)
+            .then((res)=>{
+                Swal.fire({
+                    title: 'Success',
+                    icon: 'success',
+                    text: 'Creat tikets success!'
+                })
+            })
+            .catch((err) =>{
+                console.log(err.response);
+            })
     }
-
+    imageHandler = (e)=>{
+        console.log(e.target.files[0]);
+        this.setState({
+            ...this.state,
+            image: e.target.files[0]
+        })
+    }
     inputHandler = (event) =>{
-        console.log(event.target.value);
         const target = event.target;
         const value = target.value
         const name = target.name;
@@ -93,51 +84,55 @@ export class Admin extends Component {
             target.style.color = "red"
     }
 
-    ebuHandler=(e) =>{
-        this.setState({
-            ...this.state,
-            name: 'ebu.id',
-            place: 'ebu.id'
-        })
-        let item = document.getElementsByClassName('ach-place-item')
-        let i;
-        const target = e.target
-        for(i=0;i<item.length; i++){
-            item[i].style.background = 'none'
-        }
-        target.style.background = 'yellow'
+    providerHandler=(e) =>{
+        this.state.provider.push(e)
+        // this.setState({
+        //     ...this.state,
+        //     name: 'ebu.id',
+        //     place: 'ebu.id',
+        //     provider: e
+        // })
+        // let item = document.getElementsByClassName('ach-place-item')
+        // let i;
+        // const target = e.target
+        // for(i=0;i<item.length; i++){
+        //     item[i].style.background = 'none'
+        // }
+        // target.style.background = 'yellow'
     }
     cinemaHandler=(e) =>{
         this.setState({
             ...this.state,
             name: 'cineOne21',
-            place: 'cineOne21'
+            place: 'cineOne21',
+            provider: e
         })
-        let item = document.getElementsByClassName('ach-place-item')
-        let i;
-        const target = e.target
-        for(i=0;i<item.length; i++){
-            item[i].style.background = 'none'
-        }
-        target.style.background = 'yellow'
+        // let item = document.getElementsByClassName('ach-place-item')
+        // let i;
+        // const target = e.target
+        // for(i=0;i<item.length; i++){
+        //     item[i].style.background = 'none'
+        // }
+        // target.style.background = 'yellow'
     }
     hiflixHandler=(e) =>{
         this.setState({
             ...this.state,
             name: 'hiflix',
-            place: 'hiflix'
+            place: 'hiflix',
+            provider: e
         })
-        let item = document.getElementsByClassName('ach-place-item')
-        let i;
-        const target = e.target
-        for(i=0;i<item.length; i++){
-            item[i].style.background = 'none'
-        }
-        target.style.background = 'yellow'
+        // let item = document.getElementsByClassName('ach-place-item')
+        // let i;
+        // const target = e.target
+        // for(i=0;i<item.length; i++){
+        //     item[i].style.background = 'none'
+        // }
+        // target.style.background = 'yellow'
     }
 
     render() {
-        console.log(this.state.movieName);
+        console.log(this.state);
         return (
             <div>
                 <Navbar />
@@ -151,7 +146,7 @@ export class Admin extends Component {
                                     <div className="ach-left">
                                         <div className="ach-head-left">
                                             <div className="ach-left-img">
-                                                 <input type="file" name="image" onChange={this.inputHandler}/>
+                                                 <input type="file" name="image" onChange={this.imageHandler}/>
                                                  <img src="" alt=""/>
                                             </div>
                                         </div>
@@ -218,35 +213,24 @@ export class Admin extends Component {
                                     </div>
                                     <div className="ach-content-right">
                                         <div className="ach-content-right-item ach-ebu">
-                                            <img src="../source/ebu.png" alt="" className="ach-place-item" onClick={this.ebuHandler}/>
+                                            <img src="../source/ebu.png" alt="" className="ach-place-item" onClick={()=>this.providerHandler(1)}/>
                                         </div>
                                         <div className="ach-content-right-item ach-hiflix">
-                                            <img src="../source/hiflix.png" alt="" className="ach-place-item" onClick={this.hiflixHandler}/>
+                                            <img src="../source/hiflix.png" alt="" className="ach-place-item" onClick={()=>this.providerHandler(2)}/>
                                         </div>
                                         <div className="ach-content-right-item ach-cine">
-                                            <img src="../source/Cine.png" alt="" className="ach-place-item" onClick={this.cinemaHandler}/>
+                                            <img src="../source/Cine.png" alt="" className="ach-place-item" onClick={()=>this.providerHandler(3)}/>
                                         </div>
                                     </div>
                                     <div className="ach-content-right">
                                         <div className="ach-content-right-item ach-ebu">
-                                            <img src="../source/ebu.png" alt="" className="ach-place-item" onClick={this.ebuHandler}/>
+                                            <img src="../source/ebu.png" alt="" className="ach-place-item" onClick={()=>this.providerHandler(4)}/>
                                         </div>
                                         <div className="ach-content-right-item ach-hiflix">
-                                            <img src="../source/hiflix.png" alt="" className="ach-place-item" onClick={this.hiflixHandler}/>
+                                            <img src="../source/hiflix.png" alt="" className="ach-place-item" onClick={()=>this.providerHandler(5)}/>
                                         </div>
                                         <div className="ach-content-right-item ach-cine">
-                                            <img src="../source/Cine.png" alt="" className="ach-place-item" onClick={this.cinemaHandler}/>
-                                        </div>
-                                    </div>
-                                    <div className="ach-content-right">
-                                        <div className="ach-content-right-item ach-ebu">
-                                            <img src="../source/ebu.png" alt="" className="ach-place-item" onClick={this.ebuHandler}/>
-                                        </div>
-                                        <div className="ach-content-right-item ach-hiflix">
-                                            <img src="../source/hiflix.png" alt="" className="ach-place-item" onClick={this.hiflixHandler}/>
-                                        </div>
-                                        <div className="ach-content-right-item ach-cine">
-                                            <img src="../source/Cine.png" alt="" className="ach-place-item" onClick={this.cinemaHandler}/>
+                                            <img src="../source/Cine.png" alt="" className="ach-place-item" onClick={()=>this.providerHandler(6)}/>
                                         </div>
                                     </div>
                                 </div>

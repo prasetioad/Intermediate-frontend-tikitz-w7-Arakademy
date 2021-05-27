@@ -82,8 +82,8 @@
     color:  #F7F7FC !important;
 }
 .n-profil-icon{
-    height: 50px;
-    width: 50px;
+    height: 50px !important;
+    width: 50px !important;
     margin-top: -10px;
     border-radius: 50%;
     cursor: pointer;
@@ -92,8 +92,10 @@
 
 .n-profil-icon img {
     width: 60px;
+    height: 60px;
     border-radius: 50px;
     border: 1px solid #DEDEDE;
+    background-size: cover;
 }
 
 .nav-item .dropdown .n-nav2{
@@ -153,7 +155,7 @@
 }
 
 /* Extra small devices (phones, 337px and down) */
-@media only screen and (max-width:375px) {
+@media only screen and (max-width:600px) {
     .n-nav-container {
         font-family: 'Mulish', sans-serif;
         width: 375;

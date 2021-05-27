@@ -13,7 +13,6 @@
     flex-direction: row;
     justify-content: space-around;
     margin-top: 56px;
-    
 }
 
 
@@ -53,7 +52,9 @@
 
 .prof-left-img img{
     height: 136px;
+    width: 136px;
     border-radius: 50%;
+    background-size: cover;
 }
 
 .prof-left-pict form{
@@ -157,7 +158,6 @@ line-height: 24px;
     box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
     border-radius: 8px;
     margin-left: 40px;
-
 }
 
 .process-bar{
@@ -300,8 +300,7 @@ line-height: 24px;
     border-radius: 4px; 
     width: 360px;
     height: 56px;
-    text-align: center;
-    
+    text-align: center;   
 }
 .cityAccount {
     display: block;
@@ -318,8 +317,8 @@ line-height: 24px;
 }
 
 .history-card{
-    width: 802px;
-    height: 250px;
+    width: 95%;
+    height: auto;
     background: #FFFFFF;
     border: 0.5px solid #DEDEDE;
     box-sizing: border-box;
@@ -375,4 +374,85 @@ line-height: 24px;
         letter-spacing: 0.75px;
         color: #AAAAAA;
         
+}
+.historyPageWrapper{
+    height: 766px;
+    overflow: auto;
+}
+@media only screen and (max-width: 600px) {
+    .historyPageWrapper{
+        height: 766px;
+        overflow: auto;
+    }
+    .prof-body-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 56px;
+    }
+    .prof-right{
+        width: 100%;
+        height: auto;
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        margin-top: 50px;
+    }
+    .prof-right-input{
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .prof-right-input{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .prof-right-form form {
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+    }
+    .prof-right-form form input{
+        background: #FCFDFE;
+        border: 1px solid #DEDEDE;
+        box-sizing: border-box;
+        border-radius: 4px;
+        width: 95%;
+        height: 64px;
+    }
+    .prof-btn{
+        margin-top: 56px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #5F2EEA;
+        border-radius: 4px; 
+        width: 95%;
+        height: auto;
+        text-align: center;   
+    }
+    .prof-left{
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
+        border-radius: 6px;
+        border: 1px solid #DEDEDE;
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 32px;
+        letter-spacing: 0.75px;
+        color: #4E4B66;
+    }
+    .line-process-bar{
+        width: 75%;
+        height: 16px;
+        background: #F5F6F8;
+        box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+    }
 }

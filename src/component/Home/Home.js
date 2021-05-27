@@ -5,6 +5,7 @@ import Navbar from '../component-source/Navbar/Navbar'
 import Footer from '../component-source/Footer/Footer'
 import axios from 'axios'
 import Card from '../component-source/card/card'
+import Swal from 'sweetalert2'
 
 export class Home extends Component {
         constructor(props){
@@ -26,18 +27,61 @@ export class Home extends Component {
             //     return movie;
             // })
         })
+        .catch((err)=>{
+            console.log(err.response);
+        })
     }
 
     getMovieDetil =(id)=>{
         this.props.history.push(`/movie-detil/${id}`)
     }
-
+    removeMovie=(id)=>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                axios.delete(process.env.REACT_APP_API_HOST+`/tikets/${id}`, {headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }})
+                .then((res)=>{
+                    Swal.fire({
+                        title: 'success',
+                        icon: 'success'
+                    })
+                })
+                .catch((err)=>{
+                    console.log(err);
+                    alert('cek')
+                })
+            }
+        })
+        axios.get(process.env.REACT_APP_API_HOST+'/tikets')
+        .then((res) =>{
+            console.log(res.data);
+            this.setState({
+                movie: res.data.data
+            })
+            // this.state.movie.map(movie => {
+            //     return movie;
+            // })
+        })
+        .catch((err)=>{
+            console.log(err.response);
+        })
+    }
     handleViewAll = () =>{
         this.props.history.push('/tikets?page=1&per_Page=8')
     }
-
+    
     render() {
-        console.log(this.props);
+        
+        console.log(window.location.href);  
         return (
             <div>
                 <Navbar  />
@@ -71,32 +115,17 @@ export class Home extends Component {
                             </div>
                         </div>
 
-                    <div className="b-main-right">
-                        <div className="b-on" >
-                            <a href="http://">
-                                <img src="../source/Rectangle118.png" alt=""/>
-                            </a>
-                        </div>
-                        <div className="b-on" >
-                            <a href="http://">
-                                <img src="../source/Rectangle120.png" alt=""/>
-                            </a>
-                        </div>
-                        <div className="b-off">
-                            <a href="http://">
-                                <img src="../source/Rectangle119.png"  alt=""/>
-                            </a>
-                        </div>
-                        <div className="b-off">
-                            <a href="http://">
-                                <img src="../source/Rectangle118.png"  alt=""/>
-                            </a>
-                        </div>
-                        <div className="b-off">
-                            <a href="http://">
-                                <img src="../source/Rectangle120.png"  alt=""/>
-                            </a>
-                            </div>
+                        <div className="b-main-right">
+                        {
+                             this.state.movie.map(movie =>{
+                                 return <Card key={movie.id} 
+                                 title={movie.name} 
+                                 genre={movie.genre}
+                                 img={movie.image}
+                                 getDetil={() => this.getMovieDetil( movie.id)}
+                                 />
+                             })
+                         }
                         </div>
                     </div>
                 </main>
@@ -135,6 +164,7 @@ export class Home extends Component {
                                  genre={movie.genre}
                                  img={movie.image}
                                  getDetil={() => this.getMovieDetil(movie.id)}
+                                 removeMovie={()=>{ this.removeMovie(movie.id)}}
                                  />
                              })
                          }

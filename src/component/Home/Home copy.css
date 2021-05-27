@@ -135,18 +135,17 @@
     font-family: 'Mulish',sans-serif;
     display: grid;
     grid-template-rows: 150px auto;
-    height: 578px;
+    /* height: 578px; */
     background-color: #F5F6F8;
     
 }
 
 .b-main-left{
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    justify-content: space-evenly;
     padding-bottom: 0;
     margin-bottom: 0;
-    margin-top: 72px;
-    
+    margin-top: 22px;
 }
 
 .b-left{
@@ -264,16 +263,18 @@ border-radius: 8px;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     justify-content: center;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .b-card-body{
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
+    height: 450px;
 }
 
 .b-card{
-    margin-top: 56px;
+    /* margin-top: 56px;
     margin-left: 12px;
     margin-right: 12px;
     padding-top: 32x;
@@ -282,15 +283,29 @@ border-radius: 8px;
     padding-bottom:  24px ;
     border-radius: 8px !important;
     width: 223px;
-    text-align: center;
-    
+    text-align: center; */
+    /* border: 1px solid red; */
 }
 
 .b-card a{
     border-radius: 8px;
 }
-
-.b-card a img{
+.b-cardCard{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    text-align: center;
+    border: grey;
+    padding: 2px 5px;
+    margin: 5px 15px;
+    width: 200px;
+}
+.b-cardCard-item{
+    margin: 2px;
+}
+.b-card .b-cardCard img{
     margin-top: 32px;
     width: 159px;
 }
@@ -313,7 +328,7 @@ border-radius: 8px;
 }
 
 .b-cd-1{
-    margin-top: 38px;
+    margin-top:10px;
     /* padding: 8px 20px 7px 20px ; */
     border: 1px solid #A0A3BD;
     box-sizing: border-box;
@@ -519,7 +534,7 @@ border-radius: 8px;
 
 
 /* Extra small devices (phones, 337px and down) */
-@media only screen and (max-width:375px) {
+@media only screen and (max-width:600px) {
     .b-nav-container {
         font-family: 'Mulish', sans-serif;
         width: 375;
@@ -758,17 +773,17 @@ border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-around   ;
-    width: 375px;
-    height: 376px;
+    height: 120vh;
+
 }
 
 .b-main-left{
     display: flex;
     justify-content: space-between;
-    width: 375px;
-    margin-top: 20px;
-    
-    
+    margin-top: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .b-main-left .left{
@@ -783,7 +798,7 @@ border-radius: 8px;
 }
 
 .b-main-right{
-    width: 375px;
+    /* width: 375px; */
     display: flex;
     justify-content: start;
     overflow: auto;
@@ -831,7 +846,7 @@ border-radius: 8px;
 
 
 .b-month{
-    width: 375px;
+    width: 100vw;
 }
 
 
@@ -864,10 +879,12 @@ border-radius: 8px;
     grid-template-columns: auto auto auto auto auto;
     justify-content: start;
     overflow: auto;
-    width: 375px;
+    width: 100vw;
 }
 
-/* .b-card-body */
+.b-card-body{
+
+}
 
 
 .b-foot-container{
@@ -876,11 +893,8 @@ border-radius: 8px;
     font-weight: normal;
     font-size: 12px;
     line-height: 22px;
-    /* or 183% */
-
     text-align: center;
     letter-spacing: 0.75px;
-
     height: 401px;
 }
 .b-foot-head{
@@ -979,7 +993,14 @@ border-radius: 8px;
 .b-foot-mobile li{
     margin-right: 15px;
 }
-
+.b-left{
+    margin: 0;
+    margin-left: 10px;
+}
+.b-right{
+    padding: 0;
+    margin-right: 10px;
+}
 .b-left-two .b-foot-mobile .b-ebu{
     height: 55px;
 }
@@ -995,14 +1016,20 @@ border-radius: 8px;
     display: none;
 }
 
-
+.m-menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 }
 
 
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {...}
+ @media only screen and (min-width: 600px) {
+    
+ }
 
 /* Medium devices (landscape tablets, 768px and up) */
 /* @media only screen and (min-width: 768px) {...} */

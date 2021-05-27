@@ -6,10 +6,6 @@ import {
     Link,
   } from "react-router-dom";
  
-
-
-
-
 export class Navbar extends Component {
 
     constructor(props) {
@@ -17,13 +13,12 @@ export class Navbar extends Component {
         this.state = {
             search: '',
             data: [],
-            isLoggedIn: ''
+            isLoggedIn: '',
+            find: false,
+            foundData:[],
+            onOf: false
         }
     } 
-
-    
-    
-
     componentDidMount(){
         const url = process.env.REACT_APP_API_HOST
         const token = localStorage.getItem('token');
@@ -34,14 +29,14 @@ export class Navbar extends Component {
             if(this.state.data.length == 0){
             axios.get(url +`/users/profile/${token}`)
             .then((res) =>{
+                localStorage.setItem('userId', res.data.data.userid)
                 this.setState({
                     data: res.data.data
                 })
             })
-            
             .catch((err) =>{
                 if(err){
-                this.props.history.push('/signin')
+                // this.props.history.push('/signin')
                 window.localStorage.removeItem("token")
                 console.log(token)
                 // alert('token salah')
@@ -54,7 +49,17 @@ export class Navbar extends Component {
         // })
         }
 
-    
+    findMovie=(e)=>{
+        axios.get(process.env.REACT_APP_API_HOST+'/tikets?search='+ e.target.value)
+        .then((res)=>{
+            this.setState({
+                foundData: res.data.data
+            })
+        })
+        .catch((err)=>{
+            console.log(err.response);
+        })
+    }
     SearchTikets = (e) =>{
         e.preventDefault()
        this.props.history.push(`/tikets?search=${this.state.search}`)
@@ -71,11 +76,25 @@ export class Navbar extends Component {
         });
       }
 
-     
+      handleFind=()=>{
+          if(this.state.find == false){
+              this.setState({
+                  find: true
+              })
+          }else{
+              this.setState({
+                  find: false
+              })
+          }
+      }
 
       handleLogout = () => {
           window.localStorage.removeItem("token")
+          window.localStorage.removeItem("userId")
+          window.localStorage.removeItem("role")
+          if(this.props.history){
           this.props.history.push('/signin')
+          }
       }
 
       handleProfile = () => {
@@ -83,19 +102,33 @@ export class Navbar extends Component {
       }
 
       handleHome = () =>{
-        this.props.history.push('/tikets')
+        this.props.history.push('/tikets?page=1&per_Page=8')
       }
 
       handleTikets = () =>{
-        this.props.history.push('/movie-detil')
+        this.props.history.push('/tikets?page=1&per_Page=8')
     }
 
     handleBuy = ()=>{
-        this.props.history.push('/payment/2')
+        this.props.history.push('/tikets?page=1&per_Page=8')
+    }
+    
+    active =()=>{
+        const target = document.getElementById('bardProfil')
+        if(this.state.onOf == true){
+            this.setState({
+                onOf: false
+            })
+        }else{
+            this.setState({
+                ...this.state,
+                onOf: true
+            })
+        }
     }
 
     render() {
-
+        console.log(this.state.data.image);
         function burger () {
         const burger = document.querySelector('.n-burger input');
         const nav = document.querySelector('.n-nav1 ul');
@@ -105,18 +138,9 @@ export class Navbar extends Component {
         });
     }
 
-    function active(){
-        const trigger = document.querySelector('.n-profil-icon input');
-        const target = document.querySelector('.n-profil-icon ul');
-
-        trigger.addEventListener('click', function() {
-            target.classList.toggle('n-active')
-            // target.style.display = 'block'
-          });
-    }
     
         // console.log('navbar dari state: ',  this.state.data);
-       
+       console.log(this.state.onOf);
         console.log(this.props);
         return (
             <div>
@@ -129,13 +153,13 @@ export class Navbar extends Component {
                         <ul className="">
                             <li className="n-off">
                                 <form onSubmit={(e)=>this.SearchTikets(e)}  >
-                                    <input type="text" className="glyphicon glyphicon-search" name="search"  placeholder="Search..." onChange={this.handleInputChange}/>
+                                    <input type="text" className="glyphicon glyphicon-search" name="search"  placeholder="Search..." onChange={(e)=>this.handleInputChange(e)}/>
                                     <button type='submit'>Cari</button>
                                 </form>
                             </li>
                             <li className="n-off">
                             <li className="nav-item dropdown .n-off">
-                                <a className="nav-link dropdown-toggle .n-off" href="./index.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                <a className="nav-link dropdown-toggle .n-off" href="./home"  id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Home
                                 </a>
@@ -168,28 +192,58 @@ export class Navbar extends Component {
                             Location
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="#">Action</a></li>
-                            <li><a className="dropdown-item" href="#">Another action</a></li>
+                            <li><a className="dropdown-item" href="#">Purwokerto</a></li>
+                            <li><a className="dropdown-item" href="#">Cilacap</a></li>
                             <li>
                                 <hr className="dropdown-divider"/>
                             </li>
-                            <li><a className="dropdown-item" href="#">Something else here</a></li>
+                            <li><a className="dropdown-item" href="#">Bandung</a></li>
                             </ul>
                         </li>
-                        <i className="glyphicon glyphicon-search"><a href="#"></a></i>
-                        { this.state.isLoggedIn == false ?
-                        <div className="n-btn">
-                        <Link to="/signup"><a href="" target="_blank" rel="noopener noreferrer">Sign Up</a></Link>
-                        </div> :
-                        <div className="n-profil-icon" onClick={() => active()}>
-                            <img src={ this.state.data.image} alt=""/>
-                            <input type="checkbox" className="triger-check" name="" id=""/>
-                            <ul className="">
-                                <li><button onClick={this.handleProfile}>Profil</button></li>
-                                <li><button  onClick={this.signOutHandler}>Logout</button></li>
-                            </ul>
+                        {this.state.find == false ? 
+                        <i className="glyphicon glyphicon-search" onClick={()=> this.handleFind()}><a href="#"></a></i> :
+                        <div>
+                        <form class="d-flex">
+                            <input class="form-control me-10 w-1 glyphicon glyphicon-remove" type="search" placeholder="Search" aria-label="Search" onChange={(e)=> this.findMovie(e)}/>
+                            <button class="btn btn-outline-secondary" type="submit" onClick={()=> this.handleFind()}>Cancel</button>
+                        </form>
+                        <div className="foundData">
+                            <div className="foundDataWidth">
+                                {this.state.foundData && this.state.foundData.map((item,index)=>{return(
+                                <div className="foundDataItem" style={{width: '100%', background:'whitesmoke', border:'1px solid white', zIndex: '4', cursor: 'pointer'}} onClick={()=> this.props.history.push(`/movie-detil/${item.id}`)}>
+                                    <div className="foundDataTitle" style={{fontWeight: 'bold'}} key={index}>
+                                        <p>{item.name}</p>
+                                    </div>
+                                    <div className="foundDataGenre" style={{fontSize: '12px'}}>
+                                        <p>{item.name}</p>
+                                    </div>
+                                </div>
+                                )})}
+                            </div>
+                        </div>
                         </div>
                         }
+                        {this.state.isLoggedIn == false ?
+                       <> <div className="n-btn">
+                        <Link to="/signup"><a href="" target="_blank" rel="noopener noreferrer">Sign Up</a></Link>
+                        </div> </> :<>
+                        <div className="n-profil-icon" onClick={() => this.active()}>
+                            {this.state.data.image ? 
+                            <img src={this.state.data.image} alt=""/>
+                            :
+                            <img src='https://image.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg' alt=""/>
+                            }
+                        </div>
+                        {this.state.onOf == true && 
+                            <div className="bardProfil" id='bardProfil' style={{display: 'block', position: 'absolute', background: 'white', border: '1px solid grey', right: '50px', top: '100px'}}>
+                            <ul className="" style={{listStyle: 'none', textAlign: 'center'}}>
+                                {localStorage.getItem('role') == 1 && <li><button style={{background: 'none', border: 'none', padding:'5px'}} ><Link to="/admin"><a href="" target="_blank" rel="noopener noreferrer">Setting</a></Link></button></li>}
+                                <li><button style={{background: 'none', border: 'none', padding:'5px'}} ><Link to="/profile"><a href="" target="_blank" rel="noopener noreferrer">Profile</a></Link></button></li>
+                                <li><button style={{background: 'none', border: 'none', padding:'5px'}} onClick={()=>{this.handleLogout()}}><Link to="/signin"><a href="" target="_blank" rel="noopener noreferrer">Logout</a></Link></button></li>
+                            </ul>
+                        </div>
+                         }
+                        </>}
                         </div>
                         <div className="n-burger">
                         <input type="checkbox" className="n-off" onClick={() => burger()}/>
@@ -210,11 +264,5 @@ export class Navbar extends Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return{
-//         user: state.user,
-//         product: state.product
-//     }
-// }
 
 export default  withRouter(Navbar) ;

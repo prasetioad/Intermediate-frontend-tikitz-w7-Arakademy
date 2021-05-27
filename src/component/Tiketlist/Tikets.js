@@ -62,7 +62,7 @@ class Tiketlist extends Component {
                      return( 
             <div className="t-post">
                 <div className="t-img-thumb">
-                    <img src={data.image} alt="Dummy Blog Post" style={{ height: '200', width: '100px', padding: '0', margin: '0' }}/>
+                    <img src={data.image} alt="Image" style={{ height: '200', width: '100px', padding: '0', margin: '0' }}/>
                 </div>
                 <div className="t-content">
                    <h3>{data.name}</h3>

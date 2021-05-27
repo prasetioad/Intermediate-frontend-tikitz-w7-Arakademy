@@ -4,6 +4,7 @@ const initialState = {
   price: null,
   date: null,
   location: null,
+  provLoc: null,
   seats: []
 }
 
@@ -12,7 +13,7 @@ const providerReducer = (state = initialState, action) => {
     case 'UPDATE_PROVIDER' :
       return {
         ...state,
-        transaction: action.payload
+        provLoc: action.payload
       }
     case 'UPDATE_TIME':
       return {

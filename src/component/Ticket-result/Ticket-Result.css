@@ -200,5 +200,96 @@
     line-height: 28px;
     letter-spacing: 0.75px;
     color: #4E4B66;
-
+}
+.res-ticket-mobile{
+    display: none;
+}
+@media only screen and (max-width:600px) {
+    .res-container{
+        width: 100vw;
+        height: 640px;
+        left: 195px;
+        top: 176px;
+        margin-top: 72px;
+        margin-left: auto;
+        margin-right: auto;
+        /* White */
+        background: #F5F6F8;
+        border-radius: 8px;
+    }
+    .res-ticket-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 48px;
+        background: #F5F6F8;
+        width: 90vw;
+    }
+    .res-ticket-left{
+        display: none;
+    }
+    .res-ticket-right{
+        display: none;
+    }
+    .res-ticket-mobile{
+        display: block;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        background: white;
+        border-radius: 8px;
+    }
+    .res-ticket-wrapper-top{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+        border-bottom: dotted 1px grey;
+        padding-bottom: 10px;
+    }
+    .res-ticket-mobile-item{
+        margin:10px;
+    }
+    .res-ticket-wrapper-bot{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-around;
+    }
+    .res-ticket-desc{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .res-ticket-desc-total{
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid #DEDEDE;
+        margin-bottom: 20px;
+        align-items: center;
+        padding: 5px;
+        border-radius: 6px;
+    }
+    .res-ticket-desc-total p{
+        margin: 0;
+    }
+    .res-ticket-desc-item{
+        padding:5px;
+    }
+    .res-title{
+        display: none;
+    }
+    .res-button button{
+        display: none;
+    }
 }

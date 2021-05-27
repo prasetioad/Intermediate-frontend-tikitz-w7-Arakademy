@@ -33,14 +33,18 @@ export class Profile extends Component {
                 image: this.props.user.user.image
             })
         })
-        axios.get(process.env.REACT_APP_API_HOST+`/transactions/`)
+        axios.get(process.env.REACT_APP_API_HOST+`/transactions/${localStorage.getItem('userId')}`, {headers: {
+            authorization: `Bearer ${localStorage.getItem('token')}`
+        }})
         .then((res) =>{
             console.log(res.data, 'data tiket')
             this.setState({
-                dataTicket: res.data.result
+                dataTicket: res.data.data
             })
         })
-        console.log(this.props.user);
+        if(!localStorage.getItem('token')){
+            this.props.history.push('./signin')
+        }
     }
     
     handleChange = (event) =>{
@@ -61,18 +65,16 @@ export class Profile extends Component {
             formData.append('lastName',this.state.lastName)
             formData.append('email',this.state.email)
             formData.append('phone_number',this.state.phone_number,)
-            formData.append('image',this.state.image)
-            console.log('ini form data',formData);
+            formData.append('image',this.state.image)   
             formData.getAll('image' + ' getALl Image')
             axios.put(process.env.REACT_APP_API_HOST+`/users/${this.props.user.user.userid}`, formData)
             .then((res)=>{
                 console.log(res);
             })
             .catch((err) =>{
-                console.log('Failed!');
+                console.log(err.response);
             })
         
-        console.log(this.state.image);
     }
 
     fileSelectedHandler = event =>{
@@ -80,18 +82,18 @@ export class Profile extends Component {
            ...this.state,
            image: event.target.files[0]
         });
+        this.render(this.state.data.image)
     }
 
 
 
-    deleteTicket = () =>{
-        const id = this.props.match.params.id
+    deleteTicket = (id) =>{
         axios.delete(process.env.REACT_APP_API_HOST+`/tikets/${id}`)
         .then(res =>{
             alert(res + 'Sucess')
         })
-        .catch(res => {
-            alert('Failed to delete!')
+        .catch(err => {
+            console.log(err.response);
         })
     }
 
@@ -102,7 +104,7 @@ export class Profile extends Component {
 
     render() {
         console.log(this.state.data,' dari profile');
-      console.log(this.state.image);
+      console.log(this.state.data.image);
 
 function openRole(roleName) {
     var i;
@@ -111,6 +113,7 @@ function openRole(roleName) {
       x[i].style.display = "none";  
     }
     document.getElementById(roleName).style.display = "block";  
+    document.getElementById(roleName).style.color = "blue"; 
   } 
 
       const deleteRequest = () =>{
@@ -139,7 +142,11 @@ function openRole(roleName) {
                             </div>
                             <div className="prof-left-pict">
                                 <div className="prof-left-img">
-                                    <img src={this.props.user.user.image} alt="" />
+                                    { this.state.data.image?
+                                    <img src={this.state.data.image} alt="" />
+                                    :
+                                    <img src='https://image.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg' alt="" />
+                                    }
                                 </div>
                                 <form className="prof-update-image">
                                     <input type="file" name='image' onChange={this.fileSelectedHandler}/>
@@ -217,12 +224,15 @@ function openRole(roleName) {
                                 </div>
                             </div>
                             <div id="history" className='roleProfil' style={{display: "none"}}>
-                                {this.state.dataTicket.map(movie =>{
-                                    console.log(movie.movie);
-                                <TiketCard id={movie.transaction_id}  name={movie.movie} date={movie.date} deleteRequest={deleteRequest}/>
-                            })    
-                            }
-                                </div>
+                               {this.state.dataTicket ? 
+                                <div className='historyPageWrapper'>
+                                    {
+                               this.state.dataTicket.map((item)=>{return(
+                               <TiketCard key={item.id} id={item.transaction} name={item.movie} date={item.date} deleteRequest={()=>{this.deleteTicket(item.id)}}/>
+                               )}) }
+                               </div>:
+                               <div></div>}
+                            </div>
                         </div>
                     </div>
 

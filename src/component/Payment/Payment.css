@@ -171,8 +171,9 @@
 }
 
 .p-btn-btn{
-    margin-bottom: 30px;
+    margin-top: 30px;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .p-btn button{
@@ -255,4 +256,89 @@
 }
 
 
-
+@media only screen and (max-width: 600px) {
+    .p-container{
+        height: auto;
+    }
+    .p-flex{
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 5px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.75px;
+        color: #14142B;
+    }
+    .p-left{
+        margin-top: 50px;
+    }
+    .p-left .p-title{
+        margin-left: 40px;
+    }
+    .p-left-content{
+        width: 100%;
+        margin-top: 20px;
+        height: auto;
+    }
+    .p-box{
+        width: 100%;
+        height: auto;
+    }
+    .p-right{
+        width: 100%;
+    }
+    .p-right .p-title{
+        margin-left: 40px;
+    }
+    .p-display{
+        width: 100%;
+    }
+    .p-box .p-content .p-form input{
+        width: 100%;
+        height: 64px;
+        /* padding-left: 32px; */
+    }
+    .p-pay-option{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .choosePaymentWrapper{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .p-btn{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 5px;
+        color:  #5F2EEA;
+    }
+    .p-left-content .p-title{
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 0.25px;
+        margin-top: 48px;
+    }
+    .p-box .p-content .notice{
+        margin-top: 30px;
+        margin-left: auto;
+        text-align: center;
+        padding: 22px 65px 22px 65px;
+        border-radius: 8px;
+        background: rgba(244, 183, 64, 0.3);
+    
+    }
+    .p-opt-wrapper{
+        margin: auto;
+    }
+}

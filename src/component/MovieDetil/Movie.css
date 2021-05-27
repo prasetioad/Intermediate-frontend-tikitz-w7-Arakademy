@@ -52,8 +52,13 @@
     display: grid;
     grid-template-columns: auto auto;
     margin-top: 1.8vw;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+.m-top-header-right{
+    width: 50%;
+}
 .m-detil .m-date{
     padding-top: 1vw;
 }
@@ -295,4 +300,157 @@
 hr{
     margin-top: 1.1vw;
     width: 34%;
+}
+
+@media only screen and (max-width: 600px) {
+    .m-header-container{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        font-family: 'Mulish',sans-serif;
+        height:auto;
+        margin-top: 0;
+        padding-top: 0;
+    }
+    .m-header-left img{
+        /* width: 85%; */
+        /* padding:20px 20px;    */
+        border: 2px solid #DEDEDE;
+        border-radius: 16px;
+        box-sizing: border-box;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .m-header-left{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .m-header-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 0;
+        height: auto;
+        width: auto;
+    }
+    .m-top-container .m-title{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 32px;
+        text-align: center;
+        letter-spacing: 0.75px;
+    }
+    .m-bot-container .m-genre{
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 32px;
+        letter-spacing: 0.75px;
+        color: #4E4B66;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .m-top-container{
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+    }
+    .m-main-container{
+        height: auto;
+        width: 100vw;
+        font-family: 'Mulish', sans-serif;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 18px;
+        letter-spacing: 0.75px;
+        color: #6E7191;
+        background: #F5F6F8;
+    }
+    .m-menu{
+        justify-content: center;
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        /* grid-template-columns: 100%; */
+        height: auto;   
+        margin-left: auto;
+        margin-right: auto;
+        /* width: 88.2%; */
+        /* margin-left: 80px; */
+        /* margin-right: 80px; */
+    }
+    .m-card{
+        width:90%; 
+        height: 110%;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 32px;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
+        border-radius: 8px;
+    }
+    .m-card-head{
+        display: grid;
+        grid-template-columns: 52% 48%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        border-bottom: 0.5px solid #DEDEDE; 
+    }
+    .m-top-header{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.8vw;
+    }
+    .m-top-header .m-date{
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 0.75px;
+        color: #8692A6;
+        margin-bottom: 0;
+    }
+    .m-top-header .m-duration{
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.75px;
+        color: #121212;
+    }
+    .m-header-right hr{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        color: #D6D8E7;
+    }
+    .m-bot-container{
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+    }
+    .m-bot-container .m-synopsis{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.75px;
+        color: #14142B;
+    }
+    .m-bot-container p{
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 0.75px;
+        color: #4E4B66;
+    }
+    .m-card .m-main-action .m-btn{
+
+    }
+    .m-card .m-main-action .m-add{
+       margin-top: none;
+    }
+    .m-card .m-time p {
+        padding-left: unset;
+        padding-top: 8px;
+    }
 }

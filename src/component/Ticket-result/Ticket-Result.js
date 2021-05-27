@@ -17,6 +17,76 @@ export class TicketResult extends Component {
               <p>Proof of Payment</p>
             </div>
             <div className='res-ticket-container'>
+              <div className="res-ticket-mobile">
+                <div className="res-ticket-wrapper-top">
+                  <div className="res-ticket-mobile-item">
+                    <img src="./source/bx_bxs-check-circle.png" alt="image" />
+                  </div>
+                  <div className="res-ticket-thankyou">
+                    <span>Thank You!</span>
+                    <p>Your transaction was successful</p>
+                  </div>
+                  <div className="res-ticket-code">
+                    <div className="itemQR">
+                      <img src="./source/Bitmap Copy 9.png" alt="bitmap" />
+                    </div>
+                  </div>
+                </div>
+                <div className="res-ticket-wrapper-bot">
+                  <div className="res-ticket-wrapper-bot-left">
+                    <div className="res-ticket-desc">
+                      <div className="res-ticket-desc-item">
+                        <span>Movie</span>
+                        <p>{this.props.transaction.transaction.movie}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="res-ticket-desc">
+                      <div className="res-ticket-desc-item">
+                        <span>Date</span>
+                        <p>{this.props.transaction.transaction.date}</p>
+                      </div>
+                    </div>
+
+                    <div className="res-ticket-desc">
+                      <div className="res-ticket-desc-item">
+                        <span>Count</span>
+                        <p>{this.props.transaction.transaction.count}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="res-ticket-wrapper-bot-right">
+                    <div className="res-ticket-desc">
+                      <div className="res-ticket-desc-item">
+                        <span>Category</span>
+                        <p>{this.props.transaction.transaction.category}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="res-ticket-desc">
+                      <div className="res-ticket-desc-item">
+                        <span>Time</span>
+                        <p>{this.props.transaction.transaction.time}</p>
+                      </div>
+                    </div>
+
+                    <div className="res-ticket-desc">
+                      <div className="res-ticket-desc-item">
+                        <span>Seats</span>
+                        <p>{this.props.transaction.transaction.seats}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="res-ticket-desc-total">
+                      <div className="res-ticket-desc-item">
+                        <p>Total</p>
+                      </div>
+                      <div className="res-ticket-desc-item">
+                        <p>{this.props.transaction.transaction.price}</p>
+                      </div>
+                </div>
+              </div>
               <div className='res-ticket-left'>
                 <div className='res-ticket-head'>
                   <div className='rth-title'>
@@ -100,7 +170,7 @@ export class TicketResult extends Component {
                     <div className='res-barcode'>
                       <img src='./source/Bitmap Copy 7.png' alt='' />
                       <img src='./source/Bitmap Copy 8.png' alt='' />
-                      <img src='./source/Bitmap Copy 9.png' alt='' />
+                      <img src='./source/Bitmap Copy 8.png' alt='' />
                       <img src='./source/Bitmap Copy 10.png' alt='' />
                     </div>
                   </div>

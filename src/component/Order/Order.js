@@ -6,6 +6,10 @@ import { Navbar } from '../component-source/Navbar/Navbar'
 import './Order.css'
 
 export class Order extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {data: []};
+      }
 
     checkOutHandler= (e)=>{
         e.preventDefault()
@@ -47,8 +51,11 @@ export class Order extends Component {
         this.props.updatePrice(this.props.movie.movie.price + this.props.provider.price)
     }
     render() {
-        console.log(this.props.movie);
-        console.log(this.props.provider);
+        if(this.props.movie.movie){
+            console.log('ok');
+        }else{
+            this.props.history.push('/')
+        }
         return (
             <div>
                 <Navbar />
@@ -57,10 +64,11 @@ export class Order extends Component {
                             <div className="ord-main-left">
                                 <div className="ord-left-head">
                                     <p>Movie Selected</p>
+                                    {this.props.movie.movie &&
                                     <div className="ord-choosen">
                                         <p>{this.props.movie.movie.name}</p>
-                                        <p><a href="">Change movie</a></p>
-                                    </div>
+                                        <p style={{cursor: 'pointer'}}><span onClick={()=>{this.props.history.push('/tikets?page=1&per_Page=8')}}>Change movie</span></p>
+                                    </div>}
                                 </div>
                                 <div className="ord-left-bot">
                                     <p className="ord-lb1">Choose Your Seat</p>
@@ -411,7 +419,7 @@ export class Order extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="ord-spoting">
+                                            <div className="ord-spoting ord-spoting-numb">
                                                 <div className="ord-spot-left">
                                                     <p className="ord-spot-left-a">A</p>
                                                     <div className="ord-icon-book">
@@ -489,6 +497,7 @@ export class Order extends Component {
                             </div>
                             <div className="ord-main-right">
                                 <p className="ord-lb1">Order Info</p>
+                                {this.props.movie.movie && 
                             <div className="ord-order-info">
                                 <div className="ord-style-ord-info">
                                     <img src={this.props.provider.provider.image} alt="" />
@@ -515,7 +524,7 @@ export class Order extends Component {
                                         <p className="ord-p1">Total Payment</p>
                                         <p className="ord-p2">Rp.{this.props.provider.price}</p>
                                     </div>
-                                </div>
+                                </div>}
                             </div>
                         </div>
                     </main>

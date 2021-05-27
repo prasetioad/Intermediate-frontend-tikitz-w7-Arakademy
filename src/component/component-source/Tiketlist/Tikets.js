@@ -1,6 +1,8 @@
 
 import React, { Component} from 'react'
 import './Tikets.css'
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
 import axios from 'axios'
 import { Navbar } from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
@@ -12,7 +14,8 @@ class Tiketlist extends Component {
             data: [],
             cp: 2,
             pp: 8,
-            search:[]
+            search:[],
+            order: false
         }
 
     componentDidMount() {
@@ -21,7 +24,6 @@ class Tiketlist extends Component {
         if (name == '') {
             axios.get(process.env.REACT_APP_API_HOST+`/tikets`)
                 .then((res) => {
-                    console.log('data tiket',res.data.data);
                     this.setState({
                         data: res.data.data
                     })
@@ -30,17 +32,20 @@ class Tiketlist extends Component {
             const name = this.props.location.search
             axios.get(process.env.REACT_APP_API_HOST+`/tikets/${name}`)
                 .then((res) => {
-                    console.log(res.data.data);
                     this.setState({
                         search: res.data.data
                     })
                 })
         }
-        let search = document.getElementById('search')
-        typeof this.props.location.search == ''?
-        search.style.display = "block" :
-        search.style.display = "none"
-        console.log(this.props.location.search);
+        if(this.props.provider){
+            if(this.props.provider.provLoc){
+                this.setState({
+                    order: true
+                })
+            }else{
+                return;
+            }
+        }
        
     }
 
@@ -52,16 +57,26 @@ class Tiketlist extends Component {
     }         
 
     handleSearch=(e)=>{
-        this.state.data.map(item =>{
-            let i;
-            let target = document.getElementsByClassName('tik-container')
-            for(i=0;i<target.length;i++){
-                target[i].style.display = "none"
-            }
-            const search = document.getElementById('search')
-            search.style.display = 'block'
-            this.props.history.push(`/tikets/?search=${e.target.value}`)
+        axios.get(process.env.REACT_APP_API_HOST+'/tikets?search='+ e.target.value)
+        .then((res)=>{
+            console.log(res);
+            this.setState({
+                search: res.data.data
+            })
         })
+        .catch((err)=>{
+            console.log(err.response);
+        })
+        // this.state.data.map(item =>{
+        //     let i;
+        //     let target = document.getElementsByClassName('tik-container')
+        //     for(i=0;i<target.length;i++){
+        //         target[i].style.display = "none"
+        //     }
+        //     const search = document.getElementById('search')
+        //     search.style.display = 'block'
+        //     this.props.history.push(`/tikets/?search=${e.target.value}`)
+        // })
     }
 
 
@@ -74,7 +89,10 @@ class Tiketlist extends Component {
     //     const page = this.props.location.search
     //     this.props.history.push(`/tikets?page=${page[6]-1}&per_Page=${this.state.pp}`)
     // }
-
+    changeMovie= async(id)=>{
+        await this.props.updateMovie(this.state.search[id])
+        this.props.history.push(`/order`)
+    }
 
     render(){
         console.log( 'ini adalag data hasil get',this.state.data);
@@ -82,18 +100,17 @@ class Tiketlist extends Component {
             height:"100px"
           };
 
-          console.log(this.state.data);
-          console.log(typeof this.props.location.search)
+          console.log(this.state.search);
     return(
         <div>
             <Navbar />
             <div className="t-search-objek">
             <form class="t-search" action="">
-                <input type="text" placeholder="Search.." name="search" onChange={this.handleSearch}/>
+                <input type="text" placeholder="Search.." name="search" onChange={(e)=>this.handleSearch(e)}/>
             </form>
             </div>
             <div className='tik-container'>
-            <div className="t-post" id="search">
+            {/* <div className="t-post" id="search">
                 <div className="t-img-thumb">
                     <img src={this.state.search.image} alt="Dummy Blog Post" />
                 </div>
@@ -103,17 +120,19 @@ class Tiketlist extends Component {
                    <button onClick={this.handleMove}>Detil</button>
                 </div>
                 
-            </div>
+            </div> */}
             {
-                this.state.data.map(data =>{
+                this.state.search.map((data, index) =>{
                      return( 
             <div className="t-post" id="common">
                 <div className="t-img-thumb">
-                    <img src={data.image} alt="Dummy Blog Post" />
+                    <img src={data.image} alt="Movie Image" />
                 </div>
-                <div className="t-content">
+                <div className="t-content" key={index.id}>
                    <h3>{data.name}</h3>
                    <p>{data.genre}</p>
+                   {this.state.order &&
+                   <button onClick={()=>this.changeMovie(data.id)}>Choose</button>}
                    <button onClick={()=>this.props.history.push(`/movie-detil/${data.id}`)}>Detil</button>
                 </div>
                 
@@ -144,5 +163,25 @@ class Tiketlist extends Component {
     )
 }
 }
+const mapStateToProps = (state) => {
+    return {
+      user: state.user,
+      transaction: state.transaction,
+      provider: state.provider,
+      movie: state.movie
+    }
+  }
+  const mapDispatchToProps = dispatch => ({
+    updateProvider: (data) =>{ dispatch({type: 'UPDATE_PROVIDER', payload: data})},
+    updateMovie: (data) => {dispatch({type: 'UPDATE_MOVIE', payload: data})},
+    updateDate: (data) => {dispatch({type: 'UPDATE_DATE', payload: data})},
+    updateLocation: (data) => {dispatch({type: 'UPDATE_LOCATION', payload: data})},
+    updateSeats: (data) => {dispatch({type: 'UPDATE_SEATS', payload: data})},
+    updatePrice: (data) => {dispatch({type: 'UPDATE_PRICE', payload: data})},
+    // return {
+    //   updateProvider: (data) =>{ dispatch({type: 'UPDATE_PROVIDER', payload: data})},
+    //   updateMovie: (data) => {dispatch({type: 'UPDATE_MOVIE', payload: data})}
+    // }
+  })  
 
-export default Tiketlist
+export default connect(mapStateToProps, mapDispatchToProps) (withRouter(Tiketlist))

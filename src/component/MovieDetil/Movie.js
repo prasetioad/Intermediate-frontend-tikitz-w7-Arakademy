@@ -7,6 +7,7 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import CardProvider from './CardProvider'
 import {updateProvider, updateMovie, updateDate, updateLocation, getprovider} from '../configs/redux/action/providerAction'
+import Swal from 'sweetalert2'
 
 export class Movie extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export class Movie extends Component {
     const id = this.props.match.params.id
     axios.get(process.env.REACT_APP_API_HOST + `/tikets/${id}`)
       .then((res) => {
+        console.log(res.data.result);
         this.setState({
           movie: res.data.result
         })
@@ -31,12 +33,27 @@ export class Movie extends Component {
   }
 
   handleBook = (provId) => {
-    this.props.updateProvider(this.state.provider[provId - 1])
-    this.props.updateMovie(this.state.movie[0])
-    const id = this.props.match.params.id
-    this.props.history.push(`/order`)
+    if(!localStorage.getItem('token')){
+      this.props.history.push('/signin')
+    }else if(this.props.provider.date == null){
+      Swal.fire('Eitss, jangan lupa tanggalnya!')
+      return
+    }else if(!this.props.provider.location){
+      Swal.fire ('Tempatnya jangan lupa ya!')
+      return
+    }else if(!this.props.provider.time){
+      Swal.fire ('Tentuin juga dong jamnya!')
+      return
+    }else{
+      console.log(this.props.provider.provider[provId-1]);
+      this.props.updateProvider(this.props.provider.provider[provId - 1])
+      this.props.updateMovie(this.state.movie[0])
+      const id = this.props.match.params.id
+      this.props.history.push(`/order`)
+    }
   }
   dateHandler = (e) =>{
+    console.log(this.props);
     this.props.updateDate(e.target.value)
   }
 
@@ -46,9 +63,7 @@ export class Movie extends Component {
 
 
   render() {
-    console.log('this props provider cek', this.props.provider);
-    console.log('this props movie', this.state.movie);
-    // console.log('this state date ', this.state.date);
+    console.log(this.props.provider.date);
     return (
       <div>
         <Navbar />
@@ -92,7 +107,7 @@ export class Movie extends Component {
                       <hr />
                     </div>
                     <div className="m-bot-container">
-                      <p className="m-synopsis"></p>
+                      <p className="m-synopsis">Synopsis</p>
                       <p>{item.synopsis}</p>
                     </div>
                   </div>
@@ -138,7 +153,7 @@ export class Movie extends Component {
             </div>
             <div className="m-menu">
               {
-                this.props.provider.map(item => {
+                this.props.provider.provider.map(item => {
                   return <CardProvider key={item.id}
                   id={item.id}
                   name={item.name}
@@ -166,9 +181,8 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     transaction: state.transaction,
-    provider: state.provider.provider,
+    provider: state.provider,
     movie: state.movie
-
   }
 }
 
