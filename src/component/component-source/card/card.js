@@ -38,8 +38,8 @@ const Card = (props) => {
             <div className='b-cardCard-item'>
               <button className='b-cd-1' onClick={props.getDetil}>Edit</button>
             </div>
-            <div className='b-cardCard-item'>
-              <p style={{padding: '2px 15px', background: 'darkred', color: 'white', margin: '0', textAlign: 'center'}} className='b-cd-1' onClick={props.removeMovie}>Remove</p>
+            <div className='b-cardCard-item' onClick={props.removeMovie}>
+              <p style={{padding: '2px 15px', background: 'darkred', color: 'white', margin: '0', textAlign: 'center', cursor:'pointer'}} className='b-cd-1' >Remove</p>
             </div>
             </>}
           </div>

@@ -35,8 +35,8 @@ export class Home extends Component {
     getMovieDetil =(id)=>{
         this.props.history.push(`/movie-detil/${id}`)
     }
-    removeMovie=(id)=>{
-        Swal.fire({
+    removeMovie=async(id)=>{
+       await Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             type: 'warning',
@@ -46,7 +46,7 @@ export class Home extends Component {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
-                axios.delete(process.env.REACT_APP_API_HOST+`/tikets/${id}`, {headers: {
+                 axios.delete(process.env.REACT_APP_API_HOST+`/tikets/${id}`, {headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }})
                 .then((res)=>{
@@ -56,17 +56,20 @@ export class Home extends Component {
                     })
                 })
                 .catch((err)=>{
-                    console.log(err);
+                    console.log(err.response);
                     alert('cek')
                 })
+            }else{
+                return
             }
         })
-        axios.get(process.env.REACT_APP_API_HOST+'/tikets')
+        await axios.get(process.env.REACT_APP_API_HOST+'/tikets')
         .then((res) =>{
             console.log(res.data);
             this.setState({
                 movie: res.data.data
             })
+            window.location.reload()
             // this.state.movie.map(movie => {
             //     return movie;
             // })
@@ -164,7 +167,7 @@ export class Home extends Component {
                                  genre={movie.genre}
                                  img={movie.image}
                                  getDetil={() => this.getMovieDetil(movie.id)}
-                                 removeMovie={()=>{ this.removeMovie(movie.id)}}
+                                 removeMovie={()=>this.removeMovie(movie.id)}
                                  />
                              })
                          }
