@@ -49,6 +49,7 @@ export class Admin extends Component {
                     icon: 'success',
                     text: 'Creat tikets success!'
                 })
+                console.log(res);
             })
             .catch((err) =>{
                 console.log(err.response);
