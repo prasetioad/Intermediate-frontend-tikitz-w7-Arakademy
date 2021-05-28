@@ -9,7 +9,7 @@
 </div>
   
 # Tikitz
-Tikitz, an online ticket booking application made using Javascript.
+Tikitz, an online ticket booking application made using Javascript. Here you can order a ticket without stand from your seat.On this aplication you can choose your own seat and checkout it easily. This aplication have great features like real time seats condition.
 
 ## Get Started
 ### Prerequisites
