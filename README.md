@@ -9,7 +9,7 @@
 </div>
   
 # Tikitz
-Tikitz, aplikasi pemesanan tiket online yang dibuat menggunakan Javascript.
+Tikitz, an online ticket booking application made using Javascript.
 
 ## Get Started
 ### Prerequisites
