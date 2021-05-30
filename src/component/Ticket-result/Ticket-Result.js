@@ -4,9 +4,129 @@ import Footer from '../component-source/Footer/Footer'
 import { Navbar } from '../component-source/Navbar/Navbar'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
+import ReactToPrint from 'react-to-print';
+
+
+export class ComponentToPrint extends React.PureComponent {
+  render() {
+    return (
+      <div style={{display: 'flex'}}>
+        {this.props.props && <>
+      <div className='res-ticket-left'>
+        <div className='res-ticket-head' >
+          <div className='rth-title'>
+            <img src='./source/tikitz-2.png' alt='' />
+          </div>
+          <div className='rth-des rth-title'>
+            <p>Admit One</p>
+          </div>
+        </div>
+        <div className='rth-body'>
+          <div className='rth-body-head'>
+            <p className='res-p-name'>Movie</p>
+            <span className='res-p-item'>{this.props.props.transaction.transaction.movie}</span>
+          </div>
+          <div className='rth-body-content'>
+            <div className='rth-content-date'>
+              <p className='res-p-name'>Date</p>
+              <p className='res-p-item'>{this.props.props.transaction.transaction.date}</p>
+            </div>
+            <div className='rth-content-date'>
+              <p className='res-p-name'>Time</p>
+              <p className='res-p-item'>{this.props.props.transaction.transaction.time}</p>
+            </div>
+            <div className='rth-content-date'>
+              <p className='res-p-name'>Category</p>
+              <p className='res-p-item'>{this.props.props.transaction.transaction.category}</p>
+            </div>
+            <div className='rth-content-date'>
+              <p className='res-p-name'>Count</p>
+              <p className='res-p-item'>{this.props.props.transaction.transaction.count}</p>
+            </div>
+            <div className='rth-content-date'>
+              <p className='res-p-name'>Seats</p>
+              <p className='res-p-item'>{this.props.props.transaction.transaction.seats}</p>
+            </div>
+            <div className='rth-content-date'>
+              <p className='res-p-name'>Price</p>
+              <p className='res-p-item'>{this.props.props.transaction.transaction.price}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='res-ticket-right'>
+        <div className='res-ticket-right-header'>
+          <div className='res-ticket-right-header-item'>
+            <img src='./source/tikitz-2.png' alt='' />
+          </div>
+        </div>
+        <div>
+          <div className=' res-ticket-right-body'>
+            <div className='right-body-item-container'>
+              <div className='right-body-item right-body-item-bot-content'>
+                <p className='res-p-name'>Movie</p>
+                <p className='res-p-item'>{this.props.props.transaction.transaction.movie}</p>
+              </div>
+              <div className='right-body-item-bot'>
+                <div className='right-body-item-bot-content '>
+                  <p className='res-p-name'>Date</p>
+                  <p className='res-p-item'>{this.props.props.transaction.transaction.date}</p>
+                </div>
+                <div className='right-body-item-bot-content res-item-bot-content-time '>
+                  <p className='res-p-name'>Time</p>
+                  <p className='res-p-item'>{this.props.props.transaction.transaction.time}</p>
+                </div>
+              </div>
+              <div className='right-body-item-bot'>
+                <div className='right-body-item-bot-content '>
+                  <p className='res-p-name'>Count</p>
+                  <p className='res-p-item'>{this.props.props.transaction.transaction.count}</p>
+                </div>
+                <div className='right-body-item-bot-content res-item-bot-content-seats'>
+                  <p className='res-p-name'>Seats</p>
+                  <p className='res-p-item'>{this.props.props.transaction.transaction.seats}</p>
+                </div>
+              </div>
+              <div className='right-body-item-bot-content  res-item-bot-content-category'>
+                <p className='res-p-name'>Category</p>
+                <p className='res-p-item'>{this.props.props.transaction.transaction.category}</p>
+              </div>
+            </div>
+            <div className='res-barcode'>
+              <img src='./source/Bitmap Copy 7.png' alt='' />
+              <img src='./source/Bitmap Copy 8.png' alt='' />
+              <img src='./source/Bitmap Copy 8.png' alt='' />
+              <img src='./source/Bitmap Copy 10.png' alt='' />
+            </div>
+          </div>
+        </div>
+      </div>
+      </>}
+      </div>
+    );
+  }
+}
 
 export class TicketResult extends Component {
   render () {
+    const pageStyle =`
+    @media print {
+      @page { size: potrait; }
+    }
+    @media all {
+      .res-ticket-head{
+        background: #5F2EEA !important;
+      }
+      .res-ticket-right-header{
+        background: #5F2EEA !important;
+      }
+      .res-ticket-head p{
+        color: #ffffff ;
+      }
+    }
+    `
+  
+    
     console.log(this.props.transaction)
     return (
       <div className='res-main'>
@@ -16,7 +136,7 @@ export class TicketResult extends Component {
             <div className='res-title'>
               <p>Proof of Payment</p>
             </div>
-            <div className='res-ticket-container'>
+            <div className='res-ticket-container'  >
               <div className="res-ticket-mobile">
                 <div className="res-ticket-wrapper-top">
                   <div className="res-ticket-mobile-item">
@@ -87,99 +207,18 @@ export class TicketResult extends Component {
                       </div>
                 </div>
               </div>
-              <div className='res-ticket-left'>
-                <div className='res-ticket-head'>
-                  <div className='rth-title'>
-                    <img src='./source/tikitz-2.png' alt='' />
-                  </div>
-                  <div className='rth-des rth-title'>
-                    <p>Admit One</p>
-                  </div>
-                </div>
-                <div className='rth-body'>
-                  <div className='rth-body-head'>
-                    <p className='res-p-name'>Movie</p>
-                    <span className='res-p-item'>{this.props.transaction.transaction.movie}</span>
-                  </div>
-                  <div className='rth-body-content'>
-                    <div className='rth-content-date'>
-                      <p className='res-p-name'>Date</p>
-                      <p className='res-p-item'>{this.props.transaction.transaction.date}</p>
-                    </div>
-                    <div className='rth-content-date'>
-                      <p className='res-p-name'>Time</p>
-                      <p className='res-p-item'>{this.props.transaction.transaction.time}</p>
-                    </div>
-                    <div className='rth-content-date'>
-                      <p className='res-p-name'>Category</p>
-                      <p className='res-p-item'>{this.props.transaction.transaction.category}</p>
-                    </div>
-                    <div className='rth-content-date'>
-                      <p className='res-p-name'>Count</p>
-                      <p className='res-p-item'>{this.props.transaction.transaction.count}</p>
-                    </div>
-                    <div className='rth-content-date'>
-                      <p className='res-p-name'>Seats</p>
-                      <p className='res-p-item'>{this.props.transaction.transaction.seats}</p>
-                    </div>
-                    <div className='rth-content-date'>
-                      <p className='res-p-name'>Price</p>
-                      <p className='res-p-item'>{this.props.transaction.transaction.price}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='res-ticket-right'>
-                <div className='res-ticket-right-header'>
-                  <div className='res-ticket-right-header-item'>
-                    <img src='./source/tikitz-2.png' alt='' />
-                  </div>
-                </div>
-                <div>
-                  <div className=' res-ticket-right-body'>
-                    <div className='right-body-item-container'>
-                      <div className='right-body-item right-body-item-bot-content'>
-                        <p className='res-p-name'>Movie</p>
-                        <p className='res-p-item'>{this.props.transaction.transaction.movie}</p>
-                      </div>
-                      <div className='right-body-item-bot'>
-                        <div className='right-body-item-bot-content '>
-                          <p className='res-p-name'>Date</p>
-                          <p className='res-p-item'>{this.props.transaction.transaction.date}</p>
-                        </div>
-                        <div className='right-body-item-bot-content res-item-bot-content-time '>
-                          <p className='res-p-name'>Time</p>
-                          <p className='res-p-item'>{this.props.transaction.transaction.time}</p>
-                        </div>
-                      </div>
-                      <div className='right-body-item-bot'>
-                        <div className='right-body-item-bot-content '>
-                          <p className='res-p-name'>Count</p>
-                          <p className='res-p-item'>{this.props.transaction.transaction.count}</p>
-                        </div>
-                        <div className='right-body-item-bot-content res-item-bot-content-seats'>
-                          <p className='res-p-name'>Seats</p>
-                          <p className='res-p-item'>{this.props.transaction.transaction.seats}</p>
-                        </div>
-                      </div>
-                      <div className='right-body-item-bot-content  res-item-bot-content-category'>
-                        <p className='res-p-name'>Category</p>
-                        <p className='res-p-item'>{this.props.transaction.transaction.category}</p>
-                      </div>
-                    </div>
-                    <div className='res-barcode'>
-                      <img src='./source/Bitmap Copy 7.png' alt='' />
-                      <img src='./source/Bitmap Copy 8.png' alt='' />
-                      <img src='./source/Bitmap Copy 8.png' alt='' />
-                      <img src='./source/Bitmap Copy 10.png' alt='' />
-                    </div>
-                  </div>
-                </div>
-              </div>
+             <ComponentToPrint props={this.props} ref={el => (this.componentRef = el)}/>
             </div>
             <div className='res-button'>
               <a href='#'><button className='glyphicon glyphicon-download'>Download</button></a>
-              <button className='glyphicon glyphicon-print' onClick={window.print}>Print</button>
+              <ReactToPrint pageStyle={pageStyle} 
+                trigger={() => {
+                  // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+                  // to the root node of the returned component as it will be overwritten.
+                  return  <button className='glyphicon glyphicon-print'>Print</button>  ;
+                }}
+                content={() => this.componentRef}
+              />
             </div>
           </div>
         </main>

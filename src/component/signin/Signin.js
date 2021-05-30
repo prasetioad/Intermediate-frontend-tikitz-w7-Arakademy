@@ -38,7 +38,7 @@ class Signin extends Component {
                 Swal.fire({
                     icon: 'error',
                     title: 'error',
-                    text: err.response.data.error.email
+                    text: err.response
                 })
             })
         }

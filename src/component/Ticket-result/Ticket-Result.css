@@ -293,3 +293,9 @@
         display: none;
     }
 }
+
+@media print{
+    .res-ticket-head{
+        background: #5F2EEA;
+    }
+}
