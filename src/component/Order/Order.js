@@ -6,6 +6,7 @@ import { Navbar } from '../component-source/Navbar/Navbar'
 import axios from 'axios'
 import './Order.css'
 import Seats from './seats.js'
+import Swal from 'sweetalert2'
 
 export class Order extends Component {
     constructor(props) {
@@ -23,12 +24,15 @@ export class Order extends Component {
     
     checkOutHandler= (e)=>{
         e.preventDefault()
-        this.props.history.push('/payment')
-    }
-
-    seatsHandleA = (e)=>{
-        this.props.updateSeats(e.target.alt +','+ this.props.provider.seats)
-        this.props.updatePrice(this.props.movie.movie.price + this.props.provider.price)
+        if(this.props.provider.seats.length == 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Hei..',
+                text: 'Kamu mau duduk dimana kalo gak pilih bangku ? ><'
+            })
+        }else{
+            this.props.history.push('/payment')
+        }
     }
 
   componentDidMount(){

@@ -202,12 +202,12 @@ export class Navbar extends Component {
                         </li>
                         {this.state.find == false ? 
                         <i className="glyphicon glyphicon-search" onClick={()=> this.handleFind()}><a href="#"></a></i> :
-                        <div>
+                        <div style={{zIndex: '1'}}>
                         <form class="d-flex">
                             <input class="form-control me-10 w-1 glyphicon glyphicon-remove" type="search" placeholder="Search" aria-label="Search" onChange={(e)=> this.findMovie(e)}/>
                             <button class="btn btn-outline-secondary" type="submit" onClick={()=> this.handleFind()}>Cancel</button>
                         </form>
-                        <div className="foundData">
+                        <div className="foundData" style={{overflow: 'auto', height:'500px'}}>
                             <div className="foundDataWidth">
                                 {this.state.foundData && this.state.foundData.map((item,index)=>{return(
                                 <div className="foundDataItem" style={{width: '100%', background:'whitesmoke', border:'1px solid white', zIndex: '4', cursor: 'pointer'}} onClick={()=> this.props.history.push(`/movie-detil/${item.id}`)}>

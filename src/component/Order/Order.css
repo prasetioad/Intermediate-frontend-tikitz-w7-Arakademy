@@ -98,6 +98,7 @@
 
 .ord-spot .ord-icon-book{
     padding: 2px;
+    cursor: pointer;
 }
 
 .ord-spot-left .ord-row .ord-box{
