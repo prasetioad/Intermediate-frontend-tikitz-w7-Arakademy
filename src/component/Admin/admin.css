@@ -50,7 +50,9 @@
     box-sizing: border-box;
     border-radius: 4px;
 }
-
+.ach-left-img img{
+    height:300px;
+}
 .ach-head-left{
     width: 249px;
     height: 344px;
@@ -553,6 +555,9 @@
     }
     .ach-left-img input[type=file]{
         width: 100%;
+    }
+    .ach-left-img img{
+        height:300px;
     }
     .ach-head-left{
         width: 85%;

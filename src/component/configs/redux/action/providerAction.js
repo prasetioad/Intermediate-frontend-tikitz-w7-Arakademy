@@ -22,3 +22,14 @@ export const getprovider = () => (dispatch) => {
       { dispatch({ type: 'GET_PROVIDER', payload: res.data.result }) }
     })
 }
+export const updateSeats = (data) => (dispatch) => {
+  { dispatch({ type: 'UPDATE_SEATS', payload: data }) }
+}
+
+export const deleteSeat = (data) => (dispatch) => {
+  { dispatch({ type: 'DELETE_SEAT', payload: data }) }
+}
+
+export const updatePrice = (data) => (dispatch) => {
+  { dispatch({ type: 'UPDATE_PRICE', payload: data }) }
+}

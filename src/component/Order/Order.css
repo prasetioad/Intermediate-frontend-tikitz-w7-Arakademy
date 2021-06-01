@@ -79,19 +79,21 @@
 
 .ord-map .ord-spot {
     margin-top: 30px;
-    width: 556px;
+    width: 456px;
     height: 320px;
 }
 
 .ord-map .ord-spot .ord-spoting{
     display: flex;
     justify-content: space-between;
+    flex-direction: column  ;
 }
 
 .ord-spot .ord-spot-left{
     display: flex;
     justify-content: space-between;
     padding :2px;
+    flex-wrap: wrap;
 }
 
 .ord-spot .ord-icon-book{

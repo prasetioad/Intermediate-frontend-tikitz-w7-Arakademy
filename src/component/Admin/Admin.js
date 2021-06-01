@@ -28,6 +28,8 @@ export class Admin extends Component {
         time5: null,
         time6: null,
         time7: null,
+
+        urlImage: null
     }
 
     creatTiketHandler= () =>{
@@ -59,7 +61,8 @@ export class Admin extends Component {
         console.log(e.target.files[0]);
         this.setState({
             ...this.state,
-            image: e.target.files[0]
+            image: e.target.files[0],
+            urlImage: URL.createObjectURL(e.target.files[0])
         })
     }
     inputHandler = (event) =>{
@@ -133,7 +136,7 @@ export class Admin extends Component {
     }
 
     render() {
-        console.log(this.state);
+        console.log(this.state.urlImage);
         return (
             <div>
                 <Navbar />
@@ -148,7 +151,7 @@ export class Admin extends Component {
                                         <div className="ach-head-left">
                                             <div className="ach-left-img">
                                                  <input type="file" name="image" onChange={this.imageHandler}/>
-                                                 <img src="" alt=""/>
+                                                 <img src={this.state.urlImage} alt="image"/>
                                             </div>
                                         </div>
                                         <div className="ach-head-right">

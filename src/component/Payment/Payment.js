@@ -24,8 +24,10 @@ export class Payment extends Component {
                 dataUser: res.data.data
             })
         })
-        if(typeof this.props.provider.seats == 'string'){
-            let seats = this.props.provider.seats.split(',')
+        if(typeof this.props.provider.seats){
+            let seats = this.props.provider.seats.join()
+            console.log(seats)
+            return;
             this.setState({
                 seats: seats.length
             })
@@ -51,17 +53,25 @@ export class Payment extends Component {
             date: this.props.provider.date,
             time: this.props.provider.time,
             category:this.props.movie.movie.nameCategory,
-            count: this.state.seats - 1 + ' pieces',
-            seats: this.props.provider.seats,
+            count: this.props.provider.seats.length + ' pieces',
+            seats: this.props.provider.seats.join(),
             price: this.props.provider.price,
         }
-        this.props.creatTransaction(data)
         console.log(data);
+        this.props.creatTransaction(data)
         axios.post(url+'/transactions', data)
         .then((res)=>{
+            const seatBook = {seat: data.seats}
             console.log('Payment success', res);
-            this.props.history.push('/ticket-result')
-            
+            axios.put(url+`/tikets/${this.props.movie.movie.id}`, seatBook, {headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }})
+            .then((respon)=>{
+                console.log(respon);
+                this.props.history.push('/ticket-result')
+            }).catch((err)=>{
+                console.log(err.response);
+            })
         })
         .catch((err)=>{
             console.log(err, 'apa ada error?' );
@@ -75,7 +85,7 @@ export class Payment extends Component {
         }else{
             this.props.history.push('/')
         }
-        console.log(this.props.provider);
+        console.log(JSON.stringify(this.props.provider.seats));
         return (
             <div className='main'>
                 <Navbar />
@@ -103,7 +113,7 @@ export class Payment extends Component {
                                     </div>
                                     <div class="p-detil">
                                     <p class="p-exp1">Number of tickets</p>
-                                    <p class="p-exp2">{this.state.seats-1} pieces</p>
+                                    <p class="p-exp2">{this.props.provider.seats.length} pieces</p>
                                     </div>
                                     <div class="p-detil">
                                     <p class="p-exp1">Total payment</p>

@@ -34,11 +34,11 @@ class Signin extends Component {
                 localStorage.setItem('role', res.data.result.role)
                 this.props.history.push('/')
             })
-            .catch((err)=>{
+            .catch((err)=>{console.log(err.response);
                 Swal.fire({
                     icon: 'error',
                     title: 'error',
-                    text: err.response
+                    text: err.response.data.error.email
                 })
             })
         }

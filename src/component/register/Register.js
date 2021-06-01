@@ -36,7 +36,7 @@ class Register extends Component {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Opps!',
-                    text: err.response.data.error.email
+                    text: err.response.data
                 })
             })
     }
