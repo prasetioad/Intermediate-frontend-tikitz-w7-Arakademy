@@ -25,7 +25,6 @@ export class Payment extends Component {
         })
         if(typeof this.props.provider.seats){
             let seats = this.props.provider.seats.join()
-            return;
             this.setState({
                 seats: seats.length
             })
