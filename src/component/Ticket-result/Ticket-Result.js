@@ -9,7 +9,6 @@ import ReactToPrint from 'react-to-print';
 
 export class ComponentToPrint extends React.PureComponent {
   render() {
-    console.log(this.props);
     return (
       <div style={{display: 'flex'}}>
         {this.props.props && <>

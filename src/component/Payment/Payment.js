@@ -19,32 +19,27 @@ export class Payment extends Component {
         const token = localStorage.getItem('token');
         axios.get(process.env.REACT_APP_API_HOST+`/users/profile/${token}`)
         .then((res) =>{
-            console.log('data',res.data);
             this.setState({
                 dataUser: res.data.data
             })
         })
         if(typeof this.props.provider.seats){
             let seats = this.props.provider.seats.join()
-            console.log(seats)
             return;
             this.setState({
                 seats: seats.length
             })
         }
-        console.log(this.props.provider);
         if(this.props.provider.provLoc.name){
             return
         }else{
             this.props.history.push('/signin')
         }
-        console.log('jalan order');
     }
 
     paymentHandler = (e) =>{
         e.preventDefault()
         const url = process.env.REACT_APP_API_HOST;
-        console.log(this.props.provider);
         const data = {
             transaction_id: this.state.dataUser.userid,
             movie: this.props.movie.movie.name,
@@ -62,7 +57,6 @@ export class Payment extends Component {
         axios.post(url+'/transactions', data)
         .then((res)=>{
             const seatBook = {seat: data.seats}
-            console.log('Payment success', res);
             axios.put(url+`/tikets/${this.props.movie.movie.id}`, seatBook, {headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }})
@@ -74,7 +68,7 @@ export class Payment extends Component {
             })
         })
         .catch((err)=>{
-            console.log(err, 'apa ada error?' );
+            console.log(err.response );
         })
     }
     
@@ -85,7 +79,6 @@ export class Payment extends Component {
         }else{
             this.props.history.push('/')
         }
-        console.log(JSON.stringify(this.props.provider.seats));
         return (
             <div className='main'>
                 <Navbar />
@@ -173,7 +166,9 @@ export class Payment extends Component {
                             </div>
                             <div class="p-btn">
                                         {/* <!--FLEX--> */}
-                                        <p><a href="" class="p-change">Change your movie</a></p>
+                                        <div>
+                                            <p><a href="" class="p-change">Change your movie</a></p>
+                                        </div>
                                         <div className="p-btn-btn">
                                             <button onClick={this.paymentHandler}>Checkout now</button>
                                         </div>

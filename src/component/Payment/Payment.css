@@ -171,7 +171,6 @@
 }
 
 .p-btn-btn{
-    margin-top: 30px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
@@ -341,4 +340,10 @@
     .p-opt-wrapper{
         margin: auto;
     }
+    .p-btn-btn{
+        margin-top: 30px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    
 }
