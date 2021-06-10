@@ -55,7 +55,7 @@ export class Payment extends Component {
         this.props.creatTransaction(data)
         axios.post(url+'/transactions', data)
         .then((res)=>{
-            const seatBook = {seat: data.seats}
+            const seatBook = {seat: data.seats, userId: localStorage.getItem('userId')}
             axios.put(url+`/tikets/${this.props.movie.movie.id}`, seatBook, {headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }})
